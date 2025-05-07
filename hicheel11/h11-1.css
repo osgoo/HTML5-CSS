@@ -1,0 +1,53 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    /* hevteegeer bairshuulah */
+    align-items: center;
+    /* bosoogoor bairshuulah */
+    height: 100vh;
+    background: linear-gradient(to right, #a80077, #DC133c);
+}
+
+.content{
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    width: 400px;
+}
+
+.content h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-group{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+
+.input-group input{
+    width: 43%;
+    padding: 7px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.gender-group{
+    display: flex;
+    align-items: center;
+}
+
+button{
+    width: 28%;
+    padding: 10px;
+    background-color: #000080;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}

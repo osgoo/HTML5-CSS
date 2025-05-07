@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.big-div{
+    background-color: #ccc;
+}
+
+.header{
+    background-color: rgb(18, 148, 148);
+}
+
+.header .menu ul{
+    display: flex;
+    height: 10vh;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 !important;
+}
+
+.header .row{
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.header .menu ul li{
+    list-style: none;
+}
+
+.header .menu ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: 550;
+}
+
+.content{
+    margin-top: 10px;
+}
+
+.content .row{
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.content-items{
+    background-color: #555;
+    height: 90vh;
+}
+
+.content-items .profile{
+    display: flex;
+    justify-content: center;
+}
+
+.content .sub-info{
+    display: flex;
+    justify-content: center;
+}
+
+img{
+    width: 250px;
+    padding-top: 10px;
+}
+
+.content .sub-info ul li{
+    text-decoration: none;
+    font-size: 30px;
+    list-style: none;
+}
+
+.content .sub-info ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 30px;
+}
+
+.main-content{
+    height: 58vh;
+    background-color: #fff;
+}
+
+.main-content h2{
+    font-size: 50px;
+    padding: 20px;
+}
+
+.main-content table tr th, td{
+    font-size: 30px;
+    padding: 10px 40px 8px 20px;
+}
+
+.main-content table .underline{
+    border-top: 1px solid #555;
+}
+
+.sub-content{
+    height: 28vh;
+    background-color: #fff;
+    margin-top: 10px;
+}
+
+.sub-content h2{
+    font-size: 50px;
+    padding: 20px;
+}
+
+.sub-content table tr th,td{
+    font-size: 30px;
+    padding: 10px 40px 8px 20px;
+}

@@ -1,0 +1,67 @@
+table{
+    margin: 50px;
+    border-collapse: collapse;
+}
+
+th, td{
+    border: 1px solid black;
+    padding: 10px;
+    margin: 0%;
+}
+
+th{
+    background-color: rgb(85, 85, 85);
+    color: #fff;
+}
+
+.line{
+    background-color: #000;
+    padding: 0.6px;
+    width: 30%;
+    margin-bottom: 10px;
+}
+
+h4{
+    margin-bottom: 10px;
+}
+
+form{
+    width: 30%;
+}
+
+form h4{
+    margin-bottom: 0;
+}
+.box{
+    display: flex;
+}
+
+button{
+    margin: 10px;
+    margin-left: 15%;
+    width: 300px;
+    background-color: green;
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+}
+
+input{
+    width: 100%;
+    margin: 5px;
+}
+
+.za{
+    display: flex;
+}
+.borderbox{
+    display: flex;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-right: 5px;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+
+

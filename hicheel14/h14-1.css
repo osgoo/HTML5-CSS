@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.header{
+    display: flex;
+    background-color: black;
+}
+.header .logo img{
+    width: 150px;
+}
+
+.header .header-item ul{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 50px;
+}
+
+.header .header-item li{
+    list-style: none;    
+    margin-left: 20px;
+    color: #fff;
+    margin-top: 20px;
+    position: relative;
+}
+
+.header .header-item .sub-header{
+    position: absolute;
+    left: 0;
+    top: 35px;
+    background-color: blue;
+    width: 400px;
+    display: none;
+}
+
+.header .header-item ul li:hover .sub-header{
+    display: block;
+}

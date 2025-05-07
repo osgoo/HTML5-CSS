@@ -1,0 +1,62 @@
+*{
+    height: 200vh;
+}
+
+#div1{
+    transition: 2s;
+    transition-timing-function: all linear;
+    background-color: red;
+    height: 100px;
+    width: 100px;
+    margin-top: 10px;
+}
+#div1:hover, #div2:hover, #div3:hover, #div4:hover, #div5:hover{
+    width: 400px;
+}
+
+#div2{
+    transition: 2s;
+    transition-timing-function: all ease;
+    background-color: red;
+    height: 100px;
+    width: 100px;
+    margin-top: 10px;
+}
+#div3{
+    transition: 10s;
+    transition-timing-function: all ease-in;
+    background-color: red;
+    height: 100px;
+    width: 100px;
+    margin-top: 10px;
+}
+#div4{
+    transition: 10s;
+    transition-timing-function: all ease-out;
+    background-color: red;
+    height: 100px;
+    width: 100px;
+    margin-top: 10px;
+}
+#div5{
+    transition: 2s;
+    transition-timing-function: all ease-in-out;
+    background-color: red;
+    height: 100px;
+    width: 100px;
+    margin-top: 10px;
+}
+
+.div1{
+    background-color: red;
+    height: 100px;
+    width: 100px;
+    transition: width 2s, height 2s, transform 2s;
+}
+
+.div1:hover{
+    width: 400px;
+    height: 500px;
+    transition-timing-function: ease-in;
+    transform: rotate(180deg);
+}

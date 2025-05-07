@@ -1,0 +1,23 @@
+.modal-body{
+    margin-left: 10px;
+}
+
+.modal-body input{
+    margin-left: 5px;
+}
+
+.modal-footer{
+    justify-content: center !important;
+}
+
+#a{
+    background-color: white;
+    color: blue;
+    padding: 5px;
+    margin: 10px;
+}
+
+#a:hover{
+    color: #fff;
+    background-color: rgb(0, 81, 255);
+}

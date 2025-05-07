@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header2{
+    padding-left: 200px;
+    padding-right: 200px;
+    position: sticky;
+    top:0;
+    z-index: 100;
+    background-color: #fff;}
+
+.header2 #img1{
+    width: 100%;
+    padding: 25px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.header2 .row .col-md-6 .ul1{
+    display: flex;
+    list-style: none;
+    margin: 0;
+}
+
+.header2 .row .col-md-6 .ul1 li{
+    padding: 16px;
+    text-wrap: nowrap;
+    margin: 0 !important;
+    border-bottom: rgb(253, 253, 253) solid 3px;
+    transition: 0.5s;
+}
+.header2 .row .col-md-6 .ul1 li:hover{
+    border-bottom: rgb(56, 198, 34) solid 3px;
+    transition: 200ms;
+    margin: 0 !important;
+    transition: 1s;
+}
+
+.li1{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#btn2{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.dropdown-center:hover .dropdown-menu{
+    display: block;
+    margin-top: 0px;
+}
+
+.dropdown-toggle::after{
+    display: none;
+}
+
+.dropdown-menu{
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.header2 .row .col-md-2{
+    display: flex;
+}
+
+.header2 .row .col-md-2 button{
+    height: 32px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(56, 198, 34);
+    border: 0;
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+.header2 #img2{
+    width: 20px;
+}
+
+.sidebar-wrapper{
+    position: relative;
+}
+
+#sidebar-toggle{
+    display: none;
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 330px;
+    height: 100%;
+    background-color: rgb(56, 56, 57);
+    color: #fff;
+    transition: left 0.5s ease;
+    z-index: 1000;
+}
+
+.sidebar li{
+    padding-top: 20px;
+}
+
+#sidebar-toggle:checked ~ .sidebar{
+    left: 0;
+}
+
+.toggle-btn{
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    background-color: rgb(92, 91, 91);
+    padding: 5px 15px;
+    font-size: 20px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    z-index: 10000;
+    transition: left 0.5s ease;
+}
+
+#sidebar-toggle:checked ~ .toggle-btn{
+    left: 260px;
+}

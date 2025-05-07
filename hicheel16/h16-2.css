@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.content{
+    text-align: center;
+    margin: 150px;
+}
+
+img{
+    border-radius: 30px;
+    padding: 10px;
+    opacity: 0.5;
+    transition: 0.5s;
+}
+
+img:hover{
+    opacity: 1;
+    transition: 0.5s;
+}

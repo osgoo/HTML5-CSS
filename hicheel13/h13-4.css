@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+    font-size: 30px;
+    position: relative;
+}
+
+.header img{
+    width: 300px;
+}
+
+.header{
+    display: flex;
+    justify-content: space-around;
+}
+.a{
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+}
+
+ul{
+    list-style: none;
+    display: flex;
+}
+
+li{
+    padding: 30px;
+}
+
+p{
+    margin-top: 300px;
+    text-align: center;
+}
+.square{
+    padding: 60px;
+    background-color: red;
+    width: 100px;
+    position: fixed;
+    right: 100px;
+}

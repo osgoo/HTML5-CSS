@@ -1,0 +1,35 @@
+.content{
+    position: relative;
+    height: 200vh;
+}
+
+.first{
+    position: absolute;
+    font-size: 60px;
+    top: 150px;
+    left: 200px;
+    background-color: #ccc;
+    padding: 50px;
+    z-index: 10;
+}
+
+.second{
+    position: absolute;
+    font-size: 60px;
+    top: 260px;
+    left: 400px;
+    background-color: rgb(6, 79, 76);
+    padding: 50px;
+}
+
+.third{
+    position: absolute;
+    text-align: center;
+    font-size: 60px;
+    width: 220px;
+    top: 150px;
+    left: 700px;
+    padding: 50px;
+    background-color: orange;
+    z-index: 11;
+}

@@ -1,0 +1,43 @@
+html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    .swiper {
+      width: 50%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex !important;
+      justify-content: center;
+      align-items: center;
+    }
+
+
+
+    img{
+        width: 300px !important;
+        height: 300px !important;
+        border-radius: 50%;
+        text-align: center;
+
+
+    }
+
+    .hhe{
+        
+    }

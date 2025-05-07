@@ -1,0 +1,54 @@
+div p{
+    text-align: center;
+}
+
+img.modal-trigger-img{
+    padding: 30px;
+    border-radius: 13%;
+    width: 100%;
+}
+.a{
+    display: block;
+    align-items: center;  
+    width: 30%;
+}
+.a div{
+    text-align: center;
+    font-size: large;
+}
+.b{
+    background-color: white;
+    border: 0;
+    padding-left: 22%;
+}
+.container{
+    display:flex;
+}
+.modal-content{
+    background-color: rgb(70, 70, 70);
+    color: white;
+}
+.modal-header{
+    overflow: hidden;
+    padding: 0;
+}
+.btn-close{
+    display:inline;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: grey;
+}
+.title{
+    background-color: red;
+    margin-left: 40%;
+    margin-right: 40%;
+    border-radius: 0 0 10px 10px;
+}
+li::marker{
+    color: red;
+}
+
+#a{
+    border-top: 1px solid red;
+}

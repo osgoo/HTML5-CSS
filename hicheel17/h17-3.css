@@ -1,0 +1,265 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    padding: 0;
+}
+
+.content .header .row .col-md-6{
+    display: flex;
+    padding-left: 0;
+}
+
+.content .header .row .col-md-6 ul{
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+.content .header .row .col-md-6 ul li{
+    padding: 30px;
+    padding-left: 0;
+    padding-right: 25px;
+    white-space: nowrap;
+    color: #5b698e;
+    font-weight: 500;
+}
+
+.content .header .row .col-md-6 ul li:hover{
+    color: black;
+    cursor: pointer;
+}
+
+.content .header .row .col-md-6 img{
+    width: 200px;
+    height: 80px;
+    padding-top: 20px;
+}
+.content .header .row .col-md-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content .header .row .col-md-2 button{
+    margin-left: 15px;
+    padding: 8px;
+}
+
+.content .header .row .col-md-2 .btn1{
+    background-color: white;
+    border-radius: 50px;
+    border: 0.1px solid #ccc;
+    color: #161e34;
+}
+
+.content .header .row .col-md-2 .btn1:hover{
+    background: linear-gradient(to right, rgb(159, 124, 234), rgb(1, 178, 248));
+}
+
+.content .header .row .col-md-2 .btn2{
+    color: #fff;
+    border: 0;
+    background-color: #161e34;
+    padding-left: 35px;
+    padding-right: 35px;
+    border-radius: 50px;
+}
+
+.content .header .row .col-md-2 .btn2:hover{
+    background: linear-gradient(to right, rgb(159, 124, 234), rgb(1, 178, 248));
+}
+
+.body{
+    height: 300vh;
+}
+
+.body-header1{
+    display: flex;
+    margin-top: 60px;
+}
+
+.body-header1 p{
+    padding-right: 5px;
+    font-size: 11px;
+    font-weight: 500;
+    color: #5b698e;
+}
+
+.body-header1 .home:hover{
+    color: #000;
+}
+
+.body-header2{
+    font-size: 50px;
+    font-weight: 500;
+    margin-bottom: 50px;
+}
+
+.line1{
+    background-color: #ccc;
+    padding: 0.1px;
+}
+.body .col-md-2{
+    width: 110px;
+}
+.body .col-md-2 i{
+    font-size: 30px;
+    padding: 20px;
+    background-color: #ccc;
+    border-radius: 60px;
+    display: block;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.body .col-md-4 p{
+    padding-top: 20px;
+    padding-bottom: 50px;
+    font-weight: 500;
+}
+.body #a p{
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+#b h4{
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+.grey{
+    color: #5b698e;
+    font-weight: 500;
+}
+
+table{
+    border: 0.1px solid #ccc;
+    border-radius: 20px;
+    border-collapse: separate;
+}
+table th{
+    text-align: center;
+    padding: 30px;
+    border-bottom:  0.1px solid #ccc;
+}
+table td{
+    width: 50%;
+    padding: 30px;
+}
+.td{
+    display: flex;
+}
+table i{
+    font-size: 25px;
+    padding: 20px;
+    border: 0.1px solid #ccc;
+    border-radius: 60px;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    margin-left: 0;
+    background-color: #fff !important;
+}
+table p{
+    font-weight: 500;
+    margin-top: 15px;
+}
+
+table .bright{
+    border-right: 0.1px solid #ccc;
+}
+table #btopbot{
+    border-bottom: 0.1px solid #ccc;
+    border-top: 0.1px solid #ccc;
+}
+#i1{
+    color:rgb(1, 141, 74);
+    background-color: rgb(107, 246, 179);
+}
+
+#i2{
+    color:rgb(83, 1, 141);
+    background-color: rgb(245, 197, 116);
+}
+#i5{
+    color:rgb(141, 1, 104);
+    background-color: rgb(245, 116, 241);
+}
+#i3{
+    color:rgb(3, 1, 141);
+    background-color: rgb(116, 176, 245);
+}
+#i4{
+    color:rgb(238, 195, 2);
+    background-color: rgb(224, 222, 217);
+}
+#i6{
+    color:rgb(141, 73, 1);
+    background-color: rgb(245, 197, 116);
+}
+h5{
+    font-weight: 500;
+}
+a{
+    color: #5b698e;
+    font-weight: 500;
+    text-decoration: none;
+}
+#c{
+    padding: 70px;
+    border-left: 0.1px solid #ccc;
+}
+.blue{
+    background-color: rgb(1, 1, 181);
+    height: 500px;
+    border-radius: 10px;
+    text-align: center;
+    padding-top: 100px !important;
+    padding: 20px;
+}
+#c .blue img{
+    width: 200px;
+    height: 80px;
+    padding-top: 20px;
+}
+
+.btn3{
+    background-color: white;
+    border-radius: 50px;
+    border: 0;
+    color: #161e34;
+    padding: 10px;
+    font-weight: 500;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+#c p{
+    font-weight: 500;
+    color: #5b698e;
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+
+.btn3:hover{
+    background: linear-gradient(to right, rgb(159, 124, 234), rgb(1, 178, 248));
+}
+.icons{
+    padding: 10px;
+}
+.icons i{
+    background-color: rgb(128, 128, 128, 0.5);
+    padding: 5px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.icons:hover{
+    transition-timing-function: all ease-in;
+    cursor: pointer;
+    transform: scale(0.8);
+    transition: 2s;
+}

@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.main ul{
+    display: flex;
+    justify-content: space-around;
+    background-color: #555;
+    border-radius: 5px;
+}
+
+.main ul li{
+    list-style: none;
+    color: white;
+    padding: 10px;
+    position: relative;
+    position: static;
+}
+
+.main ul li:hover{
+    background-color: #ccc;
+    color: black;
+}
+
+.main .drop-menu{
+    display: block;
+    color: #fff;
+    width: 100px;
+    position: absolute;
+    top: 40px;
+    display: none;
+}
+
+.main ul li:hover .drop-menu{
+    display: block;
+    width: 300px;
+}

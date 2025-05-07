@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header{
+    background-color: #000;
+}
+
+.header .logo img{
+    width: 100%;
+}
+
+.header .main ul{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.header .main ul li{
+    color: #fff;
+    margin-right: 10px;
+    list-style: none;
+}
+
+.header .btn button{
+    border: none;
+    color: #000;
+    background-color: aqua;
+    padding: 10px;
+    border-radius: 5px;
+}

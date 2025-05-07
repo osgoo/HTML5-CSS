@@ -1,0 +1,39 @@
+#div1{
+    width: 500px;
+    height: 100px;
+    background-color: #000;
+    margin-bottom: 10px;
+}
+#div2{
+    width: 500px;
+    height: 100px;
+    background-color: #000;
+    margin-bottom: 10px;
+
+}
+#div3{
+    width: 500px;
+    height: 100px;
+    background-color: #000;
+    margin-bottom: 10px;
+
+}
+
+#div1:hover{
+    transition-timing-function: all ease-out;
+    transition: 5s;
+    transform: skewX(30deg);
+    background-color: #ccc;
+}
+#div2:hover{
+    transition-timing-function: all ease-in;
+    transition: 5s;
+    transform: skewY(-30deg);
+    background-color: pink;
+}
+#div3:hover{
+    transition-timing-function: all ease-in-out;
+    transition: 5s;
+    transform: scale(5);
+    background-color: cyan;
+}

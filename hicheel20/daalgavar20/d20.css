@@ -1,0 +1,229 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.sidebar-wrapper{
+    position: relative;
+}
+
+#sidebar-toggle{
+    display: none;
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: -240px;
+    width: 320px;
+    height: 100%;
+    background-color: rgb(7, 1, 57);
+    color: #fff;
+    transition: left 0.5s ease;
+}
+
+.toggle-btn{
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 10px;
+    background-color: aqua;
+    padding: 10px 15px;
+    font-size: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.sidebar:hover, i:hover ~ .sidebar, .icons:hover ~ .sidebar, .icon-texts:hover ~ .sidebar{
+    left: 0;
+}
+
+#i1{
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    padding: 10px;
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 1000;
+    color: blue;
+}
+
+#i2{
+    position: fixed;
+    top: 90px;
+    font-size: 25px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#i3{
+    position: fixed;
+    top: 140px;
+    font-size: 25px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#i4{
+    position: fixed;
+    top: 190px;
+    font-size: 25px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#i5{
+    position: fixed;
+    top: 240px;
+    font-size: 25px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#i6{
+    position: fixed;
+    top: 290px;
+    font-size: 25px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#i7{
+    position: fixed;
+    top: 340px;
+    font-size: 25px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#i8{
+    position: fixed;
+    top: 600px;
+    font-size: 25px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#i9{
+    position: fixed;
+    top: 650px;
+    font-size: 25px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.icons{
+    position: relative;
+}
+
+.icons i{
+    left: 17px;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    color: #fff;
+    transition: left 0.5s ease; 
+}
+
+.icons i:hover{
+    color: #000;
+    background-color: #fff;
+    padding-right: 250px;
+}
+
+.sidebar:hover ~ span{
+    opacity: 1;
+}
+
+span{
+    position: absolute;
+    font-size: 17px;
+    left: 60px;
+    top: 8px;
+    font-style: normal;
+    opacity: 0;
+}
+
+
+
+#p2{
+    position: absolute;
+    top: 95px;
+    left: 70px;
+    cursor: pointer;
+    padding: 3px 8px; 
+    border-radius: 4px;
+}
+
+#p3{
+    position: absolute;
+    top: 145px;
+    left: 70px;
+    cursor: pointer;  
+    padding: 3px 8px; 
+    border-radius: 4px;
+}
+
+#p4{
+    position: absolute;
+    top: 195px;
+    left: 70px;
+    cursor: pointer;   
+    padding: 3px 8px;
+    border-radius: 4px; 
+}
+
+#p5{
+    position: absolute;
+    top: 245px;
+    left: 70px;
+    cursor: pointer;    
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+#p6{
+    position: absolute;
+    top: 295px;
+    left: 70px;
+    cursor: pointer;   
+    padding: 3px 8px; 
+    border-radius: 4px; 
+}
+
+#p7{
+    position: absolute;
+    top: 345px;
+    left: 70px;
+    cursor: pointer;   
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+#p8{
+    position: absolute;
+    top: 605px;
+    left: 70px;
+    cursor: pointer;  
+    padding: 3px 8px; 
+    border-radius: 4px; 
+}
+
+#p9{
+    position: absolute;
+    top: 655px;
+    left: 70px;
+    cursor: pointer;    
+    padding: 3px 8px; 
+    border-radius: 4px; 
+}
+
+#p2, #p3, #p4, #p5, #p6, #p7, #p8, #p9{
+    font-size: 17px !important;
+    white-space: nowrap;
+    color: #fff;
+}
