@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.content{
+    position: relative;
+    color: #fff;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+    z-index: 100;
+    width: 100%;
+    position: absolute;
+}
+
+.header .header-logo{
+    font-weight: 500;
+    font-size: 25px;
+}
+
+.header-list ul{
+    display: flex;
+    list-style: none;
+}
+
+.header-list ul li:not(.a){
+    padding: 7px;
+    padding-left: 40px;
+    padding-right: 40px;
+    cursor: pointer;
+}
+
+.header-list ul li .btn{
+    border: #ffffff solid 0.1px;
+    color: #fff;
+}
+
+.img{
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+}
+
+.modal{
+    background-color: rgb(255, 255, 255, 0) !important;
+}
+
+.nodal-content .p{
+    margin-left: 20px !important;
+}
+
+.modal-content{
+    background-color: rgb(255, 255, 255, 0.5) !important;
+}
+
+.modal-title{
+    padding-left: 50%;
+    transform: translateX(-20px);
+    font-size: 30px;
+}
+
+.modal-header{
+    border-bottom: #000 solid 0 !important;
+    padding: 8px !important;
+}
+.modal-footer{
+    border-top: #000 solid 0 !important;
+    justify-content: center !important;
+}
+
+.modal-footer .btn{
+    background-color: #000;
+    padding-left: 30%;
+    padding-right: 30%;
+    border: #000 solid 0.1px;
+}
+.modal-footer .btn:hover{
+    background-color: rgba(5, 5, 5, 0.7);
+    border: #000 solid 0.1px;
+}
+
+.modal-body input{
+    margin: 10px;
+    background-color: rgb(255, 255, 255, 0) !important;
+    border: #000 solid 0;
+    border-bottom: #000 solid 0.1px;
+    width: 93%;
+    margin-top: 40px;
+}
+
+.mid{
+    display: flex;
+    margin-left: 20px;
+}
+
+.mid .c{
+    padding-left: 230px;
+}
+
+.btn-close{
+    background-color: #acacac !important;
+}

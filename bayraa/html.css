@@ -1,0 +1,304 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+
+}
+.back{
+    height: 335vh;
+    background-color:rgb(31, 29, 29);
+
+
+}
+.back .main{
+    color: white;
+ padding-top: 120px;
+padding-left: 50px;
+}
+
+.main h1{
+    font-size: 70px;
+    font-weight: 700;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.main li{
+    list-style: none;
+    font-size: 18px;
+    padding-bottom: 10px;
+    padding-top: 30px;
+}
+
+.hover-text a{
+    text-decoration: none;
+    color: white;
+   
+}
+.hover-text {
+    color: #333;
+    cursor: pointer;
+    position: relative;
+text-decoration: none;
+color: white;
+font-size: 20px;
+padding-bottom: 15px;
+}
+.next-watch {
+    display: none;
+    font-size: 15px;
+    padding-top: 5px;
+    position: absolute;
+    left: 9%;
+    top: 0;
+}
+.hover-text:hover .next-watch {
+    display: block;
+}
+.header{
+    background-color: black;
+    height: 7vh;
+    display: flex;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+     
+        z-index: 1000;
+      
+}
+.logo img{
+    width: 140px;
+        padding-left: 20px;
+        padding-top: 10px;
+        filter: brightness(1.2) contrast(1.5) saturate(1.1);
+    }
+.menu{
+    display: flex;
+align-items: center;
+padding-left: 1100px;
+color: white;
+}
+.menu ul li{
+    list-style: none;
+    padding-top: 13px;
+    font-size: 13px;
+}
+.menu .bton{
+    margin: 0 0 0 15px;
+    width: 140px;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    background-color: #e50914;
+    color: white;
+}
+.menu a{
+    margin: 0 0 0 15px;
+    text-decoration: none;
+    border: 1px solid #888;
+    border-radius: 2px;
+    color: #fff;
+    line-height: 15px;
+    padding: 9px 24px;
+    white-space: nowrap;
+    font-weight: 600;
+}
+.menu a:hover{
+color: #999;
+transition: 0.5s;
+}
+.row_posters{
+    text-align: center;
+    display: flex;
+    width: 5px;
+gap: 10px;
+
+}
+
+.row_posters a{
+    padding-top: 5px;
+    text-decoration: none;
+    color: white;
+}
+.row_posters a:hover{
+    color: #C71585;
+    transition: 0.5s;
+  
+}
+.row_posters img:hover{
+    
+    transform: scale(1.1);
+transition: 0.2s;
+}
+
+.tolgoid li{
+font-size: 25px;
+}
+html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 300px;
+      margin: 20px auto;
+    }
+
+    .append-buttons {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .append-buttons button {
+      display: inline-block;
+      cursor: pointer;
+      border: 1px solid #007aff;
+      color: #007aff;
+      text-decoration: none;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin: 0 10px;
+      font-size: 13px;
+    }
+.deer{
+    padding-top: 50px;
+}
+ .deer li{
+    
+width: 700;
+font-size: 22px;
+}
+
+.blur_posters{
+    text-align: center;
+    display: flex;
+    width: 5px;
+gap: 10px;
+filter: blur(10px);
+padding-bottom: 20px;
+}
+.deer{
+    filter: blur(10px);
+}
+.door{
+    justify-content: center;
+    text-align: center;
+  font-weight: 600;
+}
+.door h2{
+    font-weight: 600;
+}
+.door ul li{
+    font-size: 20px;
+    padding-bottom: 30px;
+}
+.door button{
+    border: none;
+    background-color: red;
+    color: white;
+    width: 200px;
+    height: 50px;
+  border-radius: 5px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.door button li{
+   padding-top: 10px;
+   font-weight: 500;
+}
+
+.chimeg ul li{
+    list-style: none;
+    margin-bottom: 50px;
+}
+.chimeg ul li a{
+    text-decoration: none;
+color: #737373;;
+
+}
+.chimeg ul li a:hover{
+    text-decoration: underline;
+}
+.hi{
+    display: flex;
+gap: 50px;
+}
+.hello li{
+    padding: 10px;
+font-size: 15px;
+list-style: none;
+}
+.hello li a{
+text-decoration: none;
+color: #737373;
+
+}
+.hello li a:hover{
+    text-decoration: underline;
+}
+
+
+
+.swiper-button-next, .swiper-button-prev{
+    color: red !;
+}
+
+swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  <style>
+  .icon-red {
+    fill: red;
+  }
+</style>
+
+<svg class="icon-red" xmlns="http://www.w3.org/2000/svg" ...>
+  <path d="..." />
+</svg>

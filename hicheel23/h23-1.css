@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.mobile-header{
+    display: none;
+}
+
+@media(max-width:900px){
+    .web-header{
+        display: none !important;
+    }
+
+    .mobile-header{
+        display: block;
+        background-color: aqua;
+    }
+
+    .mobile-header-sub{
+        display: flex;
+    }
+
+    .button1{
+        position: absolute;
+        right: 0;
+    }
+}

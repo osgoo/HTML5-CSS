@@ -99,71 +99,437 @@
                 <a href="">Урамшуулал</a> >
                 <a href="">Дараа төлбөрт үйлчилгээ</a>
             </div>
-            <div class="body-header2">
-                <div class="head1" id="head1">Энгийн</div>
-                <div class="head1">Энтертайнмент</div>
-            </div>
-            <div class="body-header3">
-                <div class="head2" id="head1">20'000 Багц</div>
-                <div class="head2">22'000 Багц</div>
-            </div>
-            <div class="body-info">
-                <h5>Онцлог, давуу талууд</h5>
-                <ul>
-                    <li>1.5 сая хэрэглэгчийн сүлжээнд ХЯЗГААРГҮЙ ЯРИА</li>
-                    <li>Задгай дата ТӨЛБӨР БОДОГДОХГҮЙ</li>
-                    <li>Энтертайнмент дата багц 50% хөнгөлөлттэй</li>
-                    <li>Ярианы үлдэгдэл эрх ХУРИМТЛАГДАНА</li>
-                </ul>
-            </div>
-            <div class="main-body">
-                <div class="twenty">
-                    <h2 class="green">20'000</h2>
-                    <h5 class="green">БАГЦ</h5>
-                    <img src="Capture2.PNG" alt="">
-                    <h5>Задгай хэрэглээний тариф</h5>
-                    <div class="product">
+            <ul class="nav nav-pills mb-0" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Энгийн</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Энтертайнмент</button>
+                </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+                    <ul class="nav nav-pills mb-0" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="" type="button" role="tab" aria-controls="pills-home" aria-selected="true">20'000 Багц</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">22'000 Багц</button>
+                        </li>
+                    </ul>
+                    <div class="body-info">
+                        <h5>Онцлог, давуу талууд</h5>
                         <ul>
-                            <li>Ярианы тариф</li>
-                            <li>Дата тариф /1Kb/</li>
-                            <li>Мессеж тариф</li>
+                            <li><img src="check.svg" alt="">1.5 сая хэрэглэгчийн сүлжээнд ХЯЗГААРГҮЙ ЯРИА</li>
+                            <li><img src="check.svg" alt="">Задгай дата ТӨЛБӨР БОДОГДОХГҮЙ</li>
+                            <li><img src="check.svg" alt="">Энтертайнмент дата багц 50% хөнгөлөлттэй</li>
+                            <li><img src="check.svg" alt="">Ярианы үлдэгдэл эрх ХУРИМТЛАГДАНА</li>
                         </ul>
-                        <ul>
-                            <li>60 төг</li>
-                            <li>0 төг</li>
-                            <li>25 төг</li>
-                        </ul>
-                    </div><br>
-                    <button type="submit" class="btn btn-success" id="btn1">
-                        Авах
-                    </button>
+                    </div>
+                    <div class="main-body">
+                        <div class="twenty">
+                            <h2 class="green">20'000</h2>
+                            <h5 class="green">БАГЦ</h5>
+                            <div class="data">
+                                <div class="data-list">
+                                    <img src="data1.svg" alt="">
+                                    <div class="data-head">
+                                        <p class="grey">Дата хэрэглээ</p>
+                                        <p class="bold">2GB</p>
+                                    </div>
+                                </div>
+                                <div class="data-list">
+                                    <img src="data2.svg" alt="">
+                                    <div class="data-head">
+                                        <p class="grey">Сүлжээндээ яриа</p>
+                                        <p class="bold">Хязгааргүй</p>
+                                    </div>
+                                </div>
+                                <div class="data-list">
+                                    <img src="data3.svg" alt="">
+                                    <div class="data-head">
+                                        <p class="grey">Бусад сүлжээнд</p>
+                                        <p class="bold">200 мин</p>
+                                    </div>
+                                </div>
+                                <div class="data-list">
+                                    <img src="data4.svg" alt="">
+                                    <div class="data-head">
+                                        <p class="grey">MBook</p>
+                                        <p class="bold">60% хөнгөлөлттэй</p>
+                                    </div>
+                                </div>
+                                <div class="data-list">
+                                    <img src="data5.svg" alt="">
+                                    <div class="data-head">
+                                        <p class="grey">MMusic</p>
+                                        <p class="bold">60% хөнгөлөлттэй</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <h5>Задгай хэрэглээний тариф</h5>
+                            <div class="product">
+                                <ul>
+                                    <li>Ярианы тариф</li>
+                                    <li>Дата тариф /1Kb/</li>
+                                    <li>Мессеж тариф</li>
+                                </ul>
+                                <ul>
+                                    <li>60 төг</li>
+                                    <li>0 төг</li>
+                                    <li>25 төг</li>
+                                </ul>
+                            </div><br>
+                            <button type="submit" class="btn btn-success" id="btn1">
+                                Авах
+                            </button>
+                        </div>
+                        <div class="twenty">
+                            <h2 class="g">22'000</h2>
+                            <h5 class="g">БАГЦ</h5>
+                            <div class="data">
+                                <div class="data-list">
+                                    <img src="data1.svg" alt="">
+                                    <div class="data-head">
+                                        <p class="grey">Дата хэрэглээ</p>
+                                        <p class="bold">8GB</p>
+                                    </div>
+                                </div>
+                                <div class="data-list">
+                                    <img src="data2.svg" alt="">
+                                    <div class="data-head">
+                                        <p class="grey">Сүлжээндээ яриа</p>
+                                        <p class="bold">Хязгааргүй</p>
+                                    </div>
+                                </div>
+                                <div class="data-list">
+                                    <img src="data3.svg" alt="">
+                                    <div class="data-head">
+                                        <p class="grey">Бусад сүлжээнд</p>
+                                        <p class="bold">-</p>
+                                    </div>
+                                </div>
+                                <div class="data-list">
+                                    <img src="data4.svg" alt="">
+                                    <div class="data-head">
+                                        <p class="grey">MBook</p>
+                                        <p class="bold">60% хөнгөлөлттэй</p>
+                                    </div>
+                                </div>
+                                <div class="data-list">
+                                    <img src="data5.svg" alt="">
+                                    <div class="data-head">
+                                        <p class="grey">MMusic</p>
+                                        <p class="bold">60% хөнгөлөлттэй</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <h5>Задгай хэрэглээний тариф</h5>
+                            <div class="product">
+                                <ul>
+                                    <li>Ярианы тариф</li>
+                                    <li>Дата тариф /1Kb/</li>
+                                    <li>Мессеж тариф</li>
+                                </ul>
+                                <ul>
+                                    <li>60 төг</li>
+                                    <li>0 төг</li>
+                                    <li>25 төг</li>
+                                </ul>
+                            </div><br>
+                            <button type="submit" class="btn btn-success" id="btn1">
+                                Авах
+                            </button>
+                        </div>
+                    </div>
+                    <div class="sub-info">
+                        <em>*Дээрх үнэд НӨАТ ороогүй болно.</em><br>
+                        <em>*Багцад дагалдах дата эрх дууссанаас хойш тухайн сар дуустал 128Kbps хурдаар хязгааргүй дата ашиглах боломжтой.</em>
+                    </div>
                 </div>
-                <div class="twenty">
-                    <h2 class="g">20'000</h2>
-                    <h5 class="g">БАГЦ</h5>
-                    <img src="Capture3.PNG" alt="">
-                    <h5>Задгай хэрэглээний тариф</h5>
-                    <div class="product">
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+                    <ul class="nav nav-pills mb-0" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="" type="button" role="tab" aria-controls="pills-home" aria-selected="true">30'000 Багц</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">33'000 Багц</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">40'000 Багц</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">50'000 Багц</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">60'000 Багц</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">100'000 Багц</button>
+                        </li>
+                    </ul>
+                    <div class="body-info">
+                        <h5>Онцлог, давуу талууд</h5>
                         <ul>
-                            <li>Ярианы тариф</li>
-                            <li>Дата тариф /1Kb/</li>
-                            <li>Мессеж тариф</li>
+                            <li><img src="check.svg" alt="">1.5 сая хэрэглэгчийн сүлжээнд ХЯЗГААРГҮЙ ЯРИА</li>
+                            <li><img src="check.svg" alt="">Задгай дата ТӨЛБӨР БОДОГДОХГҮЙ</li>
+                            <li><img src="check.svg" alt="">Энтертайнмент дата багц 50% хөнгөлөлттэй</li>
+                            <li><img src="check.svg" alt="">Ярианы үлдэгдэл эрх ХУРИМТЛАГДАНА</li>
                         </ul>
-                        <ul>
-                            <li>60 төг</li>
-                            <li>0 төг</li>
-                            <li>25 төг</li>
-                        </ul>
-                    </div><br>
-                    <button type="submit" class="btn btn-success" id="btn1">
-                        Авах
-                    </button>
+                    </div>
+                    <swiper-container class="mySwiper" slides-per-view="3" centered-slides="true" space-between="30" pagination="true" pagination-type="fraction" navigation="true" loop="true">
+                        <swiper-slide>
+                            <div class="main-body">
+                                <div class="twenty">
+                                    <h2 class="g">22'000</h2>
+                                    <h5 class="g">БАГЦ</h5>
+                                    <div class="data">
+                                        <div class="data-list">
+                                            <img src="data1.svg" alt="">
+                                            <div class="data-head">
+                                                <p class="grey">Дата хэрэглээ</p>
+                                                <p class="bold">8GB</p>
+                                            </div>
+                                        </div>
+                                        <div class="data-list">
+                                            <img src="data2.svg" alt="">
+                                            <div class="data-head">
+                                                <p class="grey">Сүлжээндээ яриа</p>
+                                                <p class="bold">Хязгааргүй</p>
+                                            </div>
+                                        </div>
+                                        <div class="data-list">
+                                            <img src="data3.svg" alt="">
+                                            <div class="data-head">
+                                                <p class="grey">Бусад сүлжээнд</p>
+                                                <p class="bold">-</p>
+                                            </div>
+                                        </div>
+                                        <div class="data-list">
+                                            <img src="data4.svg" alt="">
+                                            <div class="data-head">
+                                                <p class="grey">MBook</p>
+                                                <p class="bold">60% хөнгөлөлттэй</p>
+                                            </div>
+                                        </div>
+                                        <div class="data-list">
+                                            <img src="data5.svg" alt="">
+                                            <div class="data-head">
+                                                <p class="grey">MMusic</p>
+                                                <p class="bold">60% хөнгөлөлттэй</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h5>Задгай хэрэглээний тариф</h5>
+                                    <div class="product">
+                                        <ul>
+                                            <li>Ярианы тариф</li>
+                                            <li>Дата тариф /1Kb/</li>
+                                            <li>Мессеж тариф</li>
+                                        </ul>
+                                        <ul>
+                                            <li>60 төг</li>
+                                            <li>0 төг</li>
+                                            <li>25 төг</li>
+                                        </ul>
+                                    </div><br>
+                                    <button type="submit" class="btn btn-success" id="btn1">
+                                        Авах
+                                    </button>
+                                </div>
+                            </div>
+                        </swiper-slide>
+                        <swiper-slide>
+                            <div class="main-body">
+                                <div class="twenty">
+                                    <h2 class="g">22'000</h2>
+                                    <h5 class="g">БАГЦ</h5>
+                                    <div class="data">
+                                        <div class="data-list">
+                                            <img src="data1.svg" alt="">
+                                            <div class="data-head">
+                                                <p class="grey">Дата хэрэглээ</p>
+                                                <p class="bold">8GB</p>
+                                            </div>
+                                        </div>
+                                        <div class="data-list">
+                                            <img src="data2.svg" alt="">
+                                            <div class="data-head">
+                                                <p class="grey">Сүлжээндээ яриа</p>
+                                                <p class="bold">Хязгааргүй</p>
+                                            </div>
+                                        </div>
+                                        <div class="data-list">
+                                            <img src="data3.svg" alt="">
+                                            <div class="data-head">
+                                                <p class="grey">Бусад сүлжээнд</p>
+                                                <p class="bold">-</p>
+                                            </div>
+                                        </div>
+                                        <div class="data-list">
+                                            <img src="data4.svg" alt="">
+                                            <div class="data-head">
+                                                <p class="grey">MBook</p>
+                                                <p class="bold">60% хөнгөлөлттэй</p>
+                                            </div>
+                                        </div>
+                                        <div class="data-list">
+                                            <img src="data5.svg" alt="">
+                                            <div class="data-head">
+                                                <p class="grey">MMusic</p>
+                                                <p class="bold">60% хөнгөлөлттэй</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h5>Задгай хэрэглээний тариф</h5>
+                                    <div class="product">
+                                        <ul>
+                                            <li>Ярианы тариф</li>
+                                            <li>Дата тариф /1Kb/</li>
+                                            <li>Мессеж тариф</li>
+                                        </ul>
+                                        <ul>
+                                            <li>60 төг</li>
+                                            <li>0 төг</li>
+                                            <li>25 төг</li>
+                                        </ul>
+                                    </div><br>
+                                    <button type="submit" class="btn btn-success" id="btn1">
+                                        Авах
+                                    </button>
+                                </div>
+                            </div>
+                        </swiper-slide>
+                        <swiper-slide>
+                            <div class="main-body">
+                                <div class="twenty">
+                                    <h2 class="g">22'000</h2>
+                                    <h5 class="g">БАГЦ</h5>
+                                    <div class="data">
+                                        <div class="data-list">
+                                            <img src="data1.svg" alt="">
+                                            <div class="data-head">
+                                                <p class="grey">Дата хэрэглээ</p>
+                                                <p class="bold">8GB</p>
+                                            </div>
+                                        </div>
+                                        <div class="data-list">
+                                            <img src="data2.svg" alt="">
+                                            <div class="data-head">
+                                                <p class="grey">Сүлжээндээ яриа</p>
+                                                <p class="bold">Хязгааргүй</p>
+                                            </div>
+                                        </div>
+                                        <div class="data-list">
+                                            <img src="data3.svg" alt="">
+                                            <div class="data-head">
+                                                <p class="grey">Бусад сүлжээнд</p>
+                                                <p class="bold">-</p>
+                                            </div>
+                                        </div>
+                                        <div class="data-list">
+                                            <img src="data4.svg" alt="">
+                                            <div class="data-head">
+                                                <p class="grey">MBook</p>
+                                                <p class="bold">60% хөнгөлөлттэй</p>
+                                            </div>
+                                        </div>
+                                        <div class="data-list">
+                                            <img src="data5.svg" alt="">
+                                            <div class="data-head">
+                                                <p class="grey">MMusic</p>
+                                                <p class="bold">60% хөнгөлөлттэй</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h5>Задгай хэрэглээний тариф</h5>
+                                    <div class="product">
+                                        <ul>
+                                            <li>Ярианы тариф</li>
+                                            <li>Дата тариф /1Kb/</li>
+                                            <li>Мессеж тариф</li>
+                                        </ul>
+                                        <ul>
+                                            <li>60 төг</li>
+                                            <li>0 төг</li>
+                                            <li>25 төг</li>
+                                        </ul>
+                                    </div><br>
+                                    <button type="submit" class="btn btn-success" id="btn1">
+                                        Авах
+                                    </button>
+                                </div>
+                            </div>
+                        </swiper-slide>
+                        <swiper-slide>
+                            <div class="main-body">
+                                <div class="twenty">
+                                    <h2 class="g">22'000</h2>
+                                    <h5 class="g">БАГЦ</h5>
+                                    <div class="data">
+                                        <div class="data-list">
+                                            <img src="data1.svg" alt="">
+                                            <div class="data-head">
+                                                <p class="grey">Дата хэрэглээ</p>
+                                                <p class="bold">8GB</p>
+                                            </div>
+                                        </div>
+                                        <div class="data-list">
+                                            <img src="data2.svg" alt="">
+                                            <div class="data-head">
+                                                <p class="grey">Сүлжээндээ яриа</p>
+                                                <p class="bold">Хязгааргүй</p>
+                                            </div>
+                                        </div>
+                                        <div class="data-list">
+                                            <img src="data3.svg" alt="">
+                                            <div class="data-head">
+                                                <p class="grey">Бусад сүлжээнд</p>
+                                                <p class="bold">-</p>
+                                            </div>
+                                        </div>
+                                        <div class="data-list">
+                                            <img src="data4.svg" alt="">
+                                            <div class="data-head">
+                                                <p class="grey">MBook</p>
+                                                <p class="bold">60% хөнгөлөлттэй</p>
+                                            </div>
+                                        </div>
+                                        <div class="data-list">
+                                            <img src="data5.svg" alt="">
+                                            <div class="data-head">
+                                                <p class="grey">MMusic</p>
+                                                <p class="bold">60% хөнгөлөлттэй</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h5>Задгай хэрэглээний тариф</h5>
+                                    <div class="product">
+                                        <ul>
+                                            <li>Ярианы тариф</li>
+                                            <li>Дата тариф /1Kb/</li>
+                                            <li>Мессеж тариф</li>
+                                        </ul>
+                                        <ul>
+                                            <li>60 төг</li>
+                                            <li>0 төг</li>
+                                            <li>25 төг</li>
+                                        </ul>
+                                    </div><br>
+                                    <button type="submit" class="btn btn-success" id="btn1">
+                                        Авах
+                                    </button>
+                                </div>
+                            </div>
+                        </swiper-slide>
+                    </swiper-container>
+                    <div class="sub-info">
+                        <em>*Дээрх үнэд НӨАТ ороогүй болно.</em><br>
+                        <em>*Багцад дагалдах дата эрх дууссанаас хойш тухайн сар дуустал 128Kbps хурдаар хязгааргүй дата ашиглах боломжтой.</em>
+                    </div>
                 </div>
             </div>
-            <div class="sub-info">
-                <em>*Дээрх үнэд НӨАТ ороогүй болно.</em><br>
-                <em>*Багцад дагалдах дата эрх дууссанаас хойш тухайн сар дуустал 128Kbps хурдаар хязгааргүй дата ашиглах боломжтой.</em>
-            </div>
+            
             <div class="body-info2">
                 <p>Хэрэглэгч та дотоод хэрэглээгээ нэмэгдүүлэхийн тулд нэмэлт барьцаа төлбөр байршуулах боломжтой.</p>
                 <button type="submit" class="btn btn-success" id="btn1">
@@ -192,10 +558,10 @@
                 <p>Дараа төлбөрт үйлчилгээний шинэ хэрэглэгч болохын тулд та 18 нас хүрсэн байх шаардлагатай ба өөрт ойр байрлах Юнителийн салбарт хандах эсвэл онлайнаар "eSIM" эсвэл "Хоосон сим" худалдан авах боломжтой. Юнителийн салбарт хандах бол та өөрийн цахим үнэмлэхтэйгээ ирнэ үү.</p>
                 <h5>Дараа төлбөрт үйлчилгээний хэрэглэгч болохын тулд:</h5>
                 <ul>
-                    <li>Дугаараа сонгоно.</li>
-                    <li>Бүртгэлийн хураамж төлнө.</li>
-                    <li>Азын дугаар сонгосон тохиолдолд азын дугаарын үнийг нэмж төлнө.</li>
-                    <li>Гэрээ байгуулан дараа төлбөрт үйлчилгээний шинэ хэрэглэгч болно.</li>
+                    <li><img src="check.svg" alt="">Дугаараа сонгоно.</li>
+                    <li><img src="check.svg" alt="">Бүртгэлийн хураамж төлнө.</li>
+                    <li><img src="check.svg" alt="">Азын дугаар сонгосон тохиолдолд азын дугаарын үнийг нэмж төлнө.</li>
+                    <li><img src="check.svg" alt="">Гэрээ байгуулан дараа төлбөрт үйлчилгээний шинэ хэрэглэгч болно.</li>
                 </ul>
                 <p>Хэрэглэгч та хүссэн газраасаа онлайнаар холбогдон "eSIM" эсвэл "Хоосон сим" дээрх дугаараа шууд худалдан авч, ашиглах боломжтой.</p>
                 <button type="submit" class="btn btn-success" id="btn1">
@@ -240,6 +606,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="sub-info">
                 <em>*Мөнгөн дугаар 8*ab8*ab , 8*aa8*aa, 8*aaaa8*, 8*xx aabb, 8*xx abab</em><br>
                 <em>*Алтан дугаар 8*xаaaaa, 8*ххаааа</em><br>
@@ -288,7 +655,15 @@
           </div>
       </div>
       
-  
+      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+      <script>
+        const swiperEl = document.querySelector('swiper-container');
+        const swiper = swiperEl.swiper;
+    
+        var appendNumber = 4;
+        var prependNumber = 1;
+        
+      </script>
       <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
     <script>

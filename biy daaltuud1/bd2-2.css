@@ -328,6 +328,29 @@
     font-weight: 700;
 }
 
+#pills-tab{
+    margin-left: 225px;
+    margin-right: 225px;
+}
+
+#pills-tab .nav-item{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pills-tab .nav-item .nav-link{
+    width: 100%;
+    color: #000;
+    padding: 20px;
+}
+#pills-tab .nav-item .nav-link.active{  
+    background-color: rgb(56, 198, 34);
+    color: #fff;
+}
+
+
 .body-info{
     padding: 20px;
     margin-top: 40px;
