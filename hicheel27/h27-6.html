@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="number" oninput="oddEven()">
+    <p id="result"></p>
+
+    <script>
+        function oddEven(){
+            let num = Number(document.getElementById("number").value);
+            if(num % 2 === 0){
+                document.getElementById("result").innerText = "Тэгш тоо"
+            }
+            else{
+                document.getElementById("result").innerText = "Сондгой тоо"
+            }
+        }
+    </script>
+</body>
+</html>

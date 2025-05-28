@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="num1">
+    <input type="number" id="num2">
+    <input type="number" id="num3">
+    
+    <button onclick="sum()">Nemeh uildel</button>
+    <button onclick="has()">Hasah uildel</button>
+    <button onclick="urj()">Urjih uildel</button>
+    <button onclick="huvaa()">Huvaah uildel</button>
+    <p id="result"></p>
+
+    <script>
+        function sum(){
+            let num1 = Number(document.getElementById("num1").value);
+            let num2 = Number(document.getElementById("num2").value);
+            let num3 = Number(document.getElementById("num3").value);
+            document.getElementById("result").innerText = num1+num2+num3;
+        }
+        function has(){
+            let num1 = Number(document.getElementById("num1").value);
+            let num2 = Number(document.getElementById("num2").value);
+            let num3 = Number(document.getElementById("num3").value);
+            document.getElementById("result").innerText = num1-num2-num3;
+        }
+        function urj(){
+            let num1 = Number(document.getElementById("num1").value);
+            let num2 = Number(document.getElementById("num2").value);
+            let num3 = Number(document.getElementById("num3").value);
+            document.getElementById("result").innerText = num1*num2*num3;
+        }
+        function huvaa(){
+            let num1 = Number(document.getElementById("num1").value);
+            let num2 = Number(document.getElementById("num2").value);
+            let num3 = Number(document.getElementById("num3").value);
+            document.getElementById("result").innerText = num1/num2/num3;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="Нэрээ бич" id="nameInput">
+    <button onclick="greet()">Click Me</button>
+    <p id="result"></p>
+
+    <script>
+        function greet(){
+            let name = document.getElementById("nameInput").value;
+            document.getElementById("result").innerText = "Сайн уу " + name;
+        }
+    </script>
+</body>
+</html>
