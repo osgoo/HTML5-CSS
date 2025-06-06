@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="h29-1.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+</head>
+<body>
+    <div class="content">
+        <div class="container">
+            <div class="formBox">
+                <h2>Номын бүртгэл</h2>
+                <div class="out">
+                    <div class="in">
+                        <label for="">Номын нэр</label>
+                        <input type="text" id="nameBook">
+                    </div>
+                    <div class="in">
+                        <label for="">Зохиогчын нэр</label>
+                        <input type="text" name="" id="nameWriter">
+                    </div>
+                </div>
+
+                <div class="out">
+                    <div class="in">
+                        <label for="">Хэвлэгдсэн он</label>
+                        <input type="number" name="" id="date">
+                    </div>
+                    <div class="in">
+                        <label for="">ISBN number</label>
+                        <input type="number" name="" id="isbn">
+                    </div>
+                </div>
+                
+                <div class="out">
+                    <label for="">Хэвлэлийн үйлдвэр</label>
+                    <select name="" id="company">
+                        <option value="" selected>Select</option>
+                        <option value="a">Мөнхийн Үсэг ХХК</option>
+                        <option value="b">Улаанбаатар Принт ХХК</option>
+                        <option value="c">Сэлэнгэ Пресс ХХК</option>
+                        <option value="d">MGL Дизайн ХХК</option>
+                        <option value="e">Дусал Принтинг ХХК</option>
+                        <option value="f">Принтхаус ХХК</option>
+                        <option value="g">Интерпресс ХХК</option>
+                    </select>
+                </div>
+
+                <div class="out">
+                    <div class="in">
+                        <label for="">Үлдэгдэл</label>
+                        <input type="number" name="" id="remain">
+                    </div>
+                    <div class="in">
+                        <label for="">Хуудасны тоо</label>
+                        <input type="number" name="" id="pageNumber">
+                    </div>
+                </div>
+                
+                <div class="out">
+                    <div class="in">
+                        <label for="">Үнэ</label>
+                        <input type="text" name="" id="price">
+                    </div>
+                    <div class="in">
+                        <label for="">Хямдрал</label>
+                        <input type="text" name="" id="sale">
+                    </div>
+                </div>
+
+                <div class="out">
+                    <div class="in">
+                        <label for="">Тайлбар</label>
+                        <textarea name="" id="intro"></textarea>
+                    </div>
+                </div>
+
+                <p id="errorMessage"></p>
+
+                <button type="submit" onclick="validate()">Бүртгэх</button>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+    <script>
+        function validate(){
+            const bname = document.getElementById("nameBook").value.trim();
+            const wname = document.getElementById("nameWriter").value.trim();
+            const date = document.getElementById("date").value.trim();
+            const isbn = document.getElementById("isbn").value.trim();
+            const company = document.getElementById("company").value.trim();
+            const rem = document.getElementById("remain").value.trim();
+            const pnumber = document.getElementById("pageNumber").value.trim();
+            const price = document.getElementById("price").value.trim();
+            const sale = document.getElementById("sale").value.trim();
+            const intro = document.getElementById("intro").value.trim();
+            const error = document.getElementById("errorMessage");
+
+            if(bname === ""){
+                error.innerText = "Номын нэр оруулна уу";
+                return;
+            }
+            if(wname === ""){
+                error.innerText = "Зохиогчын нэр оруулна уу";
+                return;
+            }
+            if(date === "" || date > 2025){
+                error.innerText = "Оноо зөв оруулна уу";
+                return;
+            }
+            if(isbn === ""){
+                error.innerText = "ISBN дугаар оруулна уу";
+                return;
+            }
+            if(company === ""){
+                error.innerText = "Хэвлэлийн газраа сонгоно уу";
+                return;
+            }
+            if(rem < 0 || rem === ""){
+                error.innerText = "үлдэгдэл 0 болон түүнээс их тоо оруул";
+                return;
+            }
+            if(pnumber < 1 || pnumber === ""){
+                error.innerText = "хуудас 0 ээс их тоо оруул";
+                return;
+            }
+            if(price < 1 || price === ""){
+                error.innerText = "үнэ 0 ээс их тоо оруул";
+                return;
+            }
+            if(sale < 0 || sale > 100 || sale === ""){
+                error.innerText = "Хямдрал 0-100 ийн хооронд байна!";
+                return;
+            }
+            if(intro === ""){
+                error.innerText = "Тайлбар оруулна уу";
+                return;
+            }
+
+            error.style.color = "green";
+            error.innerText = "Амжилттай бүртгэгдлээ";
+        }
+    </script>
+</body>
+</html>

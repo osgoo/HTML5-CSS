@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h3{
+            text-align: center;
+            margin-top: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            margin-bottom: 20px;
+        }
+
+        .content{
+            width: 100%;
+            height: 100vh !important;
+            display: flex;
+            justify-content: center;
+            background-color: #ccc;
+        }
+        .container{
+            margin: 50px;
+            background-color: #fff;
+            height: 400px;
+            padding: 50px;
+            padding-top: 20px !important;
+            border-radius: 10px;
+        }
+        .d{
+            margin: 10px;
+            width: 100%;
+        }
+        .do{
+            margin: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding-right: 22px;
+        }
+        .do textarea{
+            width: 270px;
+        }
+        .do input{
+            width: 270px;
+        }
+
+        .da{
+            margin: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        button{
+            margin-top: 10px;
+            color: white;
+            background-color: blue;
+            padding: 10px;
+            border-radius: 5px;
+            padding-left: 50px;
+            padding-right: 50px;
+            border: none;
+        }
+        button:hover{
+            color: blue;
+            background-color: white;
+            transition: 0.2s;
+            border: blue solid 1px;
+        }
+
+        input, textarea{
+            height: 25px;
+
+
+        }
+        label{
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            white-space: nowrap;
+            padding-top: 3px;
+        }
+        .main{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <div class="container">
+            <h3>Сурагчийн бүртгэл</h3>
+            <div class="main">
+                <div class="d">
+                    <label for="">Овог</label><br>
+                    <input type="text" name="" id="lastnameInput">
+                </div>
+            
+                <div class="d">
+                    <label for="">Нэр</label><br>
+                    <input type="text" name="" id="firstnameInput">
+                </div>
+            </div>
+
+            <div class="main">
+                <div class="d">
+                    <label for="">Нас</label><br>
+                    <input type="number" name="" id="ageInput">
+                </div>
+
+                <div class="d">
+                    <label for="">Email</label><br>
+                    <input type="text" name="" id="emailInput">
+                </div>
+            </div>
+
+            <div class="main">
+                <div class="d">
+                    <label for="">Password</label><br>
+                    <input type="password" id="password1Input">
+                </div>
+
+                <div class="d">
+                    <label for="">Password Confirmation</label><br>
+                    <input type="password" id="password2Input">
+                </div>
+            </div>
+            <div class="do">
+                    <label for="">Number</label><br>
+                    <input type="number" id="numberInput">
+            </div>
+            <div class="do">
+                <label for="">Address</label>
+                <textarea name="" id="addressInput"></textarea>
+            </div>
+
+            <div class="da">
+                <button onclick="validateForm()">Илгээх</button>
+            </div>
+
+            <div class="d">
+                <p id="errorMessage" style="color: red; font-weight: bold;">
+            </div>
+        </div>
+        
+    </div>
+
+
+    <script>
+        // DOM
+        // Validation - Шалгалт
+
+        function validateForm(){
+            const lname = document.getElementById("lastnameInput").value.trim(); // Bat
+            const fname = document.getElementById("firstnameInput").value.trim(); // Bat
+            const address = document.getElementById("addressInput").value.trim(); // Bat
+            const age = document.getElementById("ageInput").value.trim(); // 21
+            const email = document.getElementById("emailInput").value.trim();// bat@gmail.com
+            const pass1 = document.getElementById("password1Input").value.trim();
+            const pass2 = document.getElementById("password2Input").value.trim();
+            const number = document.getElementById("numberInput").value.trim();
+            const error = document.getElementById("errorMessage");
+
+            // required = Хоосон биш байх
+
+
+            if(lname === ""){
+                error.innerText = "Овогоо оруулна уу";
+                return;
+            }
+            if(fname === ""){
+                error.innerText = "Нэрээ оруулна уу";
+                return;
+            }
+
+            // Хоосон эсэхийг шалгана or эсэхийг шалгана
+            if(age === "" || isNaN(age) || age < 6 || age > 18){ // NaN = Not a Number
+                error.innerText = "Нас аа зөв оруулна уу";
+                return;
+            }
+
+            if(!email.includes("@")){
+                error.innerText = "И мэйл оруулна уу";
+                return;
+            }
+            
+            if(pass1.length != 8){
+                error.innerText = "Password оо зөв оруулна уу";
+                return;
+            }
+            if(number.length != 8){
+                error.innerText = "Дугаараа зөв оруулна уу";
+                return;
+            }
+            if(pass1.length != 8){
+                error.innerText = "Password оо зөв оруулна уу";
+                return;
+            }
+
+            if(pass1!=pass2){
+                error.innerText = "Password таарахгүй байна";
+                return;
+            }
+
+            if(address === ""){
+                error.innerText = "Хаягаа оруулна уу";
+                return;
+            }
+            
+            
+            error.style.color = "green";
+            error.innerText = "Амжилттай бүртгэгдлээ";
+
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="h31-1.css">
+</head>
+<body>
+    <div class="content">
+        <div class="container">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Мэдээлэл оруул
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Мэдээлэл оруул</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="out">
+                                <div class="in">
+                                                                <label for="">Овог</label>
+                            <input type="text" name="" id="lname" placeholder="Овог оруулна уу" required>
+                                </div>
+                                <div class="in">
+                            <label for="">Анги</label>
+                            <input type="number" name="" id="grade" placeholder="Анги оруулна уу" required>
+                                </div>
+                            </div>
+                            <div class="out">
+                                <div class="in">
+                                                                <label for="">Нас</label>
+                            <input type="number" name="" id="age" placeholder="Нас оруулна уу" required>
+                                </div>
+                                <div class="in">
+                            <label for="">Дугаар</label>
+                            <input type="number" name="" id="number" placeholder="Дугаар оруулна уу" required>
+                                </div>
+                            </div>
+                            <div class="out">
+                                <div class="in">
+                                                                <label for="">Регистер</label>
+                            <input type="text" name="" id="register" placeholder="Регистер оруулна уу" required>
+                                </div>
+                                <div class="in">
+                                    <label for="">Нэр</label>
+                            <input type="text" name="" id="name" placeholder="Нэр оруулна уу" required>
+                                </div>
+                            </div>
+                            
+
+
+
+
+
+                            <button onclick="addStudent()" id="submitBtn">Бүртгэх</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+            <ul id="list"></ul>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+    <script>
+        // // forEach
+        // const fruits = ["apple", "banana", "cherry"]
+
+        // // value, index
+        // fruits.forEach((fruit, index, arr) => {
+        //     console.log(`${index} ${fruit} ${arr}`);
+        // });
+
+        let students = JSON.parse(localStorage.getItem("students")) || [];
+
+        let editIndex = null;
+
+        function renderList(){
+            const list = document.getElementById("list");
+            list.innerHTML = "";
+
+            students.forEach((students, index) => {
+                const li = document.createElement("li");
+                li.innerText = `${students.lname} овогтой ${students.name} ${students.grade}ээр ангийн сурагч~ (${students.age} настай, ${students.num} дугаартай, регистер нь ${students.reg})`
+
+                const editBtn = document.createElement("button");
+                editBtn.innerText = "Засах";
+                editBtn.className = "edit";
+                editBtn.onclick = () => editStudent(index);
+
+                const deleteBtn = document.createElement("button");
+                deleteBtn.innerText = "Устгах";
+                deleteBtn.className = "delete";
+                deleteBtn.onclick = () => deleteStudent(index);
+
+                list.appendChild(li);
+                li.appendChild(editBtn);
+                li.appendChild(deleteBtn);
+            });
+        }
+
+        function deleteStudent(index){
+            if(confirm("Та устгахдаа үнэхээр итгэлтэй байна уу?")){
+                students.splice(index, 1);
+                localStorage.setItem("students", JSON.stringify(students));
+                renderList();
+            }
+        }
+
+        function addStudent(){
+            const name = document.getElementById("name").value.trim();
+            const lname = document.getElementById("lname").value.trim();
+            const grade = document.getElementById("grade").value.trim();
+            const age = document.getElementById("age").value.trim();
+            const num = document.getElementById("number").value.trim();
+            const reg = document.getElementById("register").value.trim();
+
+            if(!name || !lname || !age || !num || !reg || !grade){
+                return alert("Бүх талбарыг бөглө");
+            }
+            if(num.length != 8 || reg.length !=10){
+                return alert("Дугаар эсвэл регистрээ буруу оруулжээ");
+            }
+            if(grade < 1 || grade > 13){
+                return alert("Ангиа зөв оруулна уу");
+            }
+            if(age < 5 || age > 18){
+                return alert("Насаа зөв оруулна уу");
+            }
+
+            if(editIndex != null){
+                students[editIndex] = {name, lname, grade: Number(grade), age: Number(age), num, reg}
+                editIndex = null;
+                document.getElementById("submitBtn").innerText = "Бүртгэх"
+            }
+            else{
+                students.push({name, lname, grade: Number(grade), age: Number(age), num, reg});
+            }
+
+
+            localStorage.setItem("students", JSON.stringify(students));
+
+            renderList()
+            document.getElementById("name").value = "";
+            document.getElementById("lname").value = "";
+            document.getElementById("age").value = "";
+            document.getElementById("grade").value = "";
+            document.getElementById("number").value = "";
+            document.getElementById("register").value = "";
+        }
+
+        function editStudent(index){
+            // 0 1 2
+            const student = students[index];
+            document.getElementById("name").value = student.name;
+            document.getElementById("lname").value = student.lname;
+            document.getElementById("age").value = student.age;
+            document.getElementById("grade").value = student.grade;
+            document.getElementById("number").value = student.num;
+            document.getElementById("register").value = student.reg;
+            editIndex = index;
+            document.getElementById("submitBtn").innerText = "Хадгалах";
+        }
+
+        renderList()
+    </script>
+</body>
+</html>

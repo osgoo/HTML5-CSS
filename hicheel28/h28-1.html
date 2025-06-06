@@ -6,10 +6,73 @@
     <title>Document</title>
 </head>
 <body>
-
+    <h3>Хэрэглэгчийн бүртгэл</h3>
     
+    <label for="">Нэр</label>
+    <input type="text" name="" id="nameInput"><br>
+
+    <label for="">Нас</label>
+    <input type="number" name="" id="ageInput"><br>
+
+    <label for="">Email</label>
+    <input type="text" name="" id="emailInput"><br>
+
+    <label for="">Password</label>
+    <input type="password" id="password1Input"><br>
+    
+    <label for="">Password Confirmation</label>
+    <input type="password" id="password2Input"><br>
+
+    <button onclick="validateForm()">Илгээх</button><br>
+
+    <p id="errorMessage" style="color: red; font-weight: bold;"></p>
+
     <script>
-        
+        // DOM
+        // Validation - Шалгалт
+
+        function validateForm(){
+            const name = document.getElementById("nameInput").value.trim(); // Bat
+            const age = document.getElementById("ageInput").value.trim(); // 21
+            const email = document.getElementById("emailInput").value.trim();// bat@gmail.com
+            const pass1 = document.getElementById("password1Input").value.trim();
+            const pass2 = document.getElementById("password2Input").value.trim();
+            const error = document.getElementById("errorMessage");
+
+            // required = Хоосон биш байх
+
+            if(name === ""){
+                error.innerText = "Нэрээ оруулна уу";
+                return;
+            }
+
+            // Хоосон эсэхийг шалгана or эсэхийг шалгана
+            if(age === "" || isNaN(age)){ // NaN = Not a Number
+                error.innerText = "Нас аа зөв оруулна уу";
+                return;
+            }
+
+            if(!email.includes("@")){
+                error.innerText = "И мэйл оруулна уу";
+                return;
+            }
+            
+            if(pass1.length < 8){
+                error.innerText = "Password оо зөв оруулна уу";
+                return;
+            }
+
+            if(pass1!=pass2){
+                error.innerText = "Password таарахгүй байна";
+                return;
+            }
+            
+            
+            error.style.color = "green";
+            error.innerText = "Амжилттай бүртгэгдлээ";
+
+        }
+
     </script>
 </body>
 </html>

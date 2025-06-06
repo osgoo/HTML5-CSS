@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game2</title>
+</head>
+<body>
+    <h1>Тоо таах</h1>
+
+    <input type="number" name="" id="guessInput" placeholder="1-10ын хооронд тоо оруул"><br>
+    <input type="number" name="" id="guessFinal" placeholder="Таа">
+    <button onclick="guessNumber()">Таах</button>
+    <button onclick="refresh()">refresh</button>
+    <p id="guessResult"></p>
+    <p id="guessUld"></p>
+
+    <script>
+        const secret = Math.floor(Math.random()*10) + 1;
+        let a = 1;
+        let chance = 5;
+        function guessNumber(){
+            console.log(secret)
+            const guess = Number(document.getElementById("guessInput").value);
+            const result = document.getElementById("guessResult");
+            const final = Number(document.getElementById("guessFinal").value);
+            const uld = document.getElementById("guessUld");
+            
+            if(a>chance){
+                result.innerText = "оролдлого дууслаа"
+                uld.innerText = chance-chance + "оролдлого үлдлээ"
+                return;
+            }
+            if(guess + secret == final){
+                result.innerText = "Зөв таалаа"
+                return;
+
+            }
+            else if(guess<0 || guess > 10 || !guess){
+                result.innerText = "Зөв тоо оруулна уу"
+            }
+            else if(guess + secret > final){
+                result.innerText = "Таах тооноос бага байна"
+            }
+            else if(guess + secret < final){
+                result.innerText = "Таах тооноос их байна"
+            }
+
+            a=a+1;
+            uld.innerText = chance-a+2 + "оролдлого үлдлээ"
+
+        }
+        function refresh(){
+            a=2;
+            document.getElementById("guessInput").value="";
+            document.getElementById("guessUld").innerText=chance + "оролдлого үлдлээ";
+            document.getElementById("guessResult").innerText="";
+            document.getElementById("guessFinal").value="";
+            
+        }
+    </script>
+</body>
+<!-- </html>  Teacher version
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>GAME 2 </title>
+  </head>
+  <body>
+      <h1>Тоо таах</h1>
+
+      <input type="number" id="guessInput" placeholder="1-100 гийн хооронд тоо оруулна уу">
+      <button onclick="guessNumber()">Таах</button>
+      <button onclick="resetGame()">Дахин оролдох</button>
+      <p id="guessResult"></p>
+      <p id="tryChanceDisplay"></p>
+
+      <script>
+          let secret = Math.floor(Math.random() * 100) + 1;
+          let tryChance = 5
+
+          function guessNumber(){
+              console.log(secret)
+              const guess = Number(document.getElementById("guessInput").value);
+              const result = document.getElementById("guessResult");
+              const tryChanceDisplay = document.getElementById("tryChanceDisplay");
+
+              tryChanceDisplay.innerText = `Таны оролдлого: ${tryChance}`;
+
+              if(!guess || guess < 1 || guess > 101){
+                  result.innerText = "Зөв тоо оруулна уу"
+              }
+              tryChance--;
+
+              if(tryChance > 0){
+                  if(guess == secret){
+                      result.innerText = "Зөв таалаа"
+                  }
+                  else if(guess < secret){
+                      result.innerText = "Таах тооноос бага байна"
+                  }
+                  else{
+                      result.innerText = "Таах тооноос их байна"
+                  }
+              }
+              else{
+                  result.innerText = "Таны оролдлого дууслаа"
+                  resetGame();
+              }
+          }
+
+          function resetGame(){
+              tryChance = 5;
+              secret = Math.floor(Math.random() * 100) + 1;
+              document.getElementById("guessInput").value = ""
+              document.getElementById("guessResult").innerText = ""
+          }
+      </script>
+  </body>
+  </html> -->

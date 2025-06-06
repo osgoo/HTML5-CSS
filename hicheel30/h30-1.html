@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Object болон localStorage</h1>
+
+    <input type="text" name="" id="name" placeholder="Сурагчийн нэр оруулна уу" required><br>
+    <input type="text" name="" id="lname" placeholder="Сурагчийн овог оруулна уу" required><br>
+    <input type="number" name="" id="grade" placeholder="Анги оруулна уу" required><br>
+    <input type="number" name="" id="age" placeholder="Нас оруулна уу" required><br>
+    <input type="number" name="" id="number" placeholder="Дугаар оруулна уу" required><br>
+    <input type="text" name="" id="register" placeholder="Регистер оруулна уу" required><br>
+
+    <button onclick="addStudent()">Хадгалах</button>
+
+    <h2>Сурагчдын жагсаалт</h2>
+    <ul id="list">
+        
+    </ul>
+
+    <script>
+        // Object  -> python element
+
+        // let students = [
+        //     {
+        //         name: "Bat",
+        //         age: 15
+        //     },
+        //     {
+        //         name: "Suvdaa",
+        //         age: 16
+        //     }
+        // ]
+        let students = JSON.parse(localStorage.getItem("students")) || [];
+
+        console.log(students);
+
+        function renderList(){
+            const list = document.getElementById("list");
+            list.innerHTML = "";
+
+            students.forEach((s) => { // нэг нэгээр нь давтана
+                const li = document.createElement("li");
+                li.innerText = `${s.lname} овогтой ${s.name} ${s.grade}ээр ангийн сурагч~ (${s.age} настай, ${s.num} дугаартай, регистер нь ${s.reg})`;
+                list.appendChild(li);
+            });
+
+        }
+
+        function addStudent(){
+            const name = document.getElementById("name").value.trim();
+            const lname = document.getElementById("lname").value.trim();
+            const grade = document.getElementById("grade").value.trim();
+            const age = document.getElementById("age").value.trim();
+            const num = document.getElementById("number").value.trim();
+            const reg = document.getElementById("register").value.trim();
+
+            if(!name || !lname || !age || !num || !reg || !grade){
+                return alert("Бүх талбарыг бөглө");
+            }
+            if(num.length != 8 || reg.length !=10){
+                return alert("Дугаар эсвэл регистрээ буруу оруулжээ");
+            }
+            if(grade < 1 || grade > 13){
+                return alert("Ангиа зөв оруулна уу");
+            }
+            if(age < 5 || age > 18){
+                return alert("Ангиа зөв оруулна уу");
+            }
+
+            students.push({name, lname, grade: Number(grade), age: Number(age), num: Number(num), reg});
+
+            localStorage.setItem("students", JSON.stringify(students));
+
+        }
+
+        renderList();
+
+    </script>
+</body>
+</html>
