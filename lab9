@@ -1,0 +1,54 @@
+use zurchil;
+# 1.	Хар өнгийн машин хэд байдаг вэ?
+select count(*)
+from mashin m, ungu u
+where (m.unguCode=u.unguID) and (u.unguNer='Хар')
+group by m.plateNo ;
+# 2.	Ямар өнгийн машин хамгийн олон байна вэ?
+select u.unguNer, count(*)
+from mashin m, ungu u
+where (m.unguCode=u.unguID)
+group by u.unguNer
+order by count(*) desc
+limit 1;
+# 3.	Зөрчил бүрийг хичнээн удаа давтагдсаныг оноор нь ялган харуулна уу?
+select concat(z.zaalt,' ',year(zb.ognoo)), count(*)
+from zxtx z, zorchilburtgel zb
+where (z.Id=zb.duremCode)
+group by z.zaalt, zb.ognoo
+order by zb.ognoo;
+# 4.	Хурд хэтрүүлсэн зөрчил а) хоногт, б) сард дунджаар хэдэн удаа бүртгэгдэж байгааг харуулна уу?
+select avg(too)
+from (select count(*) as too
+      from zxtx z, zorchilburtgel zb
+      where (z.Id=zb.duremCode) and (z.zaalt='Хурд хэтрүүлэх')
+      group by z.zaalt, month(zb.ognoo)
+      ) as HurdHetruuleh;
+
+select avg(too)
+from (select count(*) as too
+      from zxtx z, zorchilburtgel zb
+      where (z.Id=zb.duremCode) and (z.zaalt='Согтуу жолоо')
+      group by z.zaalt, day(zb.ognoo)
+      ) as HurdHetruuleh;
+
+# 5.	Машины улсын дугаарын үсэг хэсгийг том үсэг болгон хувиргаж солих
+select upper(m.plateNo)
+from mashin m;
+
+# 6.	Хүний нэрийг дараах байдлаар гаргаж харуул. /Ургийн_овог овогт Овог-ийн Нэр/
+select ezemshigch.Owog as Ургийн_овог, ezemshigch.Ner as Овог
+from ezemshigch;
+
+# 7.	Улаан гэрлээр уулзварт нэвтэрсэн зөрчлүүдийн тоог сар, сараар нь харуулна уу?
+select z.zaalt,count(*),concat(year(zb.ognoo),'-',month(zb.ognoo))
+from zxtx z, zorchilburtgel zb
+where (z.Id=zb.duremCode)and(z.zaalt='Улаан гэрлээр гарах')
+group by zb.ognoo
+order by zb.ognoo;
+
+# 8.	5 цифрээр төгссөн, У*А сери бүхий хөх өнгийн Prius 20 машин бүртгэгдсэн зөрчил гаргасан дүүрэг, хороодыг харуулна уу?
+select d.duuregNer, h.horooNer
+from duureg d, horoo h, camer c, mashin m, ungu u,mark, zorchilburtgel zb
+where (d.duuregID=h.duuregCode and h.horooID=c.horooCode and c.camerID=zb.camerCode and zb.mashinDugaar=m.plateNo and m.unguCode=u.unguID and m.plateNo=mark.markID)
+and (plateNo like 'У_А%5' and markNer='prius 20');
