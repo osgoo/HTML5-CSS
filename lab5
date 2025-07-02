@@ -1,0 +1,102 @@
+show databases ;
+use zurchil;
+select *
+from camer;
+select *
+from horoo;
+select *
+from duureg;
+
+insert into duureg(duuregID, duuregNer)
+values (4,'Сүхбаатар');
+
+insert into horoo(horooID, horooNer, duuregCode)
+values (47,'11р хороо',4);
+
+insert into camer(camerID, camerBairshil, horooCode)
+values ('cam4','Уулзвар',47);
+
+select *
+from uildverlegch;
+
+select *
+from mark;
+
+select *
+from mashin;
+
+insert into uildverlegch(uildverlegchID, uildverlegchNer)
+values (4,'Chevrolet'),
+       (5,'BMW');
+
+insert into mark(markID, markNer, uildverCode)
+values (11,'Prius V',1),
+       (12,'Prius C',1),
+       (13,'Prius Prime',1),
+       (14,'Yaris',1),
+       (15,'Avalon',1),
+       (40,'ChewyBolt',4),
+       (50,'Alpina D5 S',5);
+
+select *
+from zorchilburtgel;
+
+insert into zxtx(id, tailbar, zaalt, dans, tulbur)
+values (48,'Дугаарын хязгаарлалт зөрчсөн','Дугаар хязгаар','0000000000',10000);
+
+update zxtx
+set zaalt = 'Дугаарын зөрчил', tulbur = 50000
+where Id = 48;
+
+insert into uildverlegch(uildverlegchID, uildverlegchNer)
+values (6,'Hyundai');
+
+insert into mark(markID, markNer, uildverCode)
+values (16,'Prius Alpha',6);
+
+update mark
+set uildverCode = 1
+where markID=16;
+
+select *
+from mark;
+
+update ezemshigch
+set Hayag='1р байр'
+where EzemshigchRD = 'TA00000001';
+
+insert into mark(markID, markNer, uildverCode)
+values (60,'Excel',6);
+
+select *
+from mashin;
+
+describe mashin;
+
+delete from mark where markID=10;
+
+alter table mashin drop foreign key mashin_ibfk_1;
+
+alter table mashin
+add constraint fk_mashin
+foreign key (markcode) references mark(markID)
+on delete cascade;
+
+alter table zorchilburtgel drop foreign key zorchilburtgel_ibfk_1;
+
+alter table zorchilburtgel
+add constraint fk_zorchil
+foreign key (mashinDugaar) references mashin(plateNo)
+on delete cascade ;
+
+
+insert into mashin(plateNo, markCode, angilalCode, unguCode, EzemshigchRD)
+values ('1234УББ', 10,88,22,'TA00000001');
+
+delete
+from mashin
+where plateNo='1234УББ';
+
+delete
+from mark
+where markID=60;
