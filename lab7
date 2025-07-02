@@ -1,0 +1,35 @@
+use zurchil;
+# 1.	Тухайн өдөр бүртгэгдсэн зөрчлийн холбогдох машины дугаар, эзэмшигчийн дэлгэрэнгүй мэдээлэл, тухайн зөрчилд хамаарах торгуулийн хэмжээ, хуулийн зүйл заалт, тайлбарыг хамт харуулна уу.
+select zb.mashinDugaar, e.*, z.tulbur, z.zaalt,z.tailbar, zb.ognoo
+from zorchilburtgel zb, ezemshigch e, zxtx z,mashin m
+where (z.Id=zb.duremCode and zb.mashinDugaar=m.plateNo and m.EzemshigchRD=e.EzemshigchRD) and
+      (date(ognoo) = '2022-07-11');
+# 2.	Тухайн өдрийн бүртгэгдсэн зөрчлүүдийг төрлөөр нь бүлэглэн тоолж харуулна уу.
+select z.zaalt, count(*)
+from zxtx z, zorchilburtgel zb
+where (date(zb.ognoo) = current_date)and(z.Id=zb.duremCode)
+group by zaalt ;
+# 3.	Өгсөн дугаар бүхий машин эзэмшигчийн мэдээллийг дэлгэрэнгүйгээр харуулна уу.
+select e.*
+from ezemshigch e, mashin m
+where (e.EzemshigchRD=m.EzemshigchRD)and(m.plateNo='ДАХ0000');
+# 4.	Камерын байршил сонгоход нийт бүртгэгдсэн зөрчлийн тоог, төрлөөр нь ангилсан тоог харуулна уу.
+select z.zaalt, count(*)
+from zxtx z, zorchilburtgel zb, camer c
+where (z.Id=zb.duremCode and c.camerID=zb.camerCode)and(c.camerBairshil='Гүүр')
+group by z.zaalt ;
+# 5.	Өгсөн марк, өнгө бүхий машинуудын улсын дугаар, эзэмшигчдийн дэлгэрэнгүй мэдээллийг харуулна уу.
+select m.plateNo, e.*
+from mashin m, ezemshigch e, mark, ungu u
+where (m.EzemshigchRD=e.EzemshigchRD and m.markCode=mark.markID and m.unguCode=u.unguID)
+and (mark.markNer='Y3' and u.unguNer='Хар');
+# 6.	Чингэлтэй дүүрэгт гарсан зөрчлүүдийн мэдээллийг харуулна уу.
+select z.*
+from zxtx z,zorchilburtgel zb, camer c, horoo h, duureg d
+where (z.Id=zb.duremCode and zb.camerCode=c.camerID and c.horooCode=h.horooID and h.duuregCode=d.duuregID)
+and (d.duuregNer='Чингэлтэй');
+# 7.	Хичнээн тооны Prius машин байгааг харуулна уу.
+select mark.markNer, count(*)
+from mark, mashin m
+where (mark.markID=m.markCode) and (mark.markNer like 'prius%')
+group by m.plateNo;
