@@ -1,0 +1,103 @@
+-- 1.	Хоногийн хөдөлгөөний эрчмийг хэд хэдэн интервалд хуваасан хүснэгт үүсгэнэ үү?
+
+SELECT
+    CASE
+        WHEN HOUR(ognoo) BETWEEN 6 AND 8 THEN 'Өглөөний зөрчил (06:00-08:59)'
+        WHEN HOUR(ognoo) BETWEEN 9 AND 16 THEN 'Өдрийн зөрчил (09:00-16:59)'
+        WHEN HOUR(ognoo) BETWEEN 17 AND 19 THEN 'Оройн зөрчил (17:00-19:59)'
+        ELSE 'Шөнийн зөрчил (20:00-05:59)'
+    END AS honogiin_interval, COUNT(*) AS `zorchliin_too`
+FROM zorchilburtgel
+GROUP BY honogiin_interval
+ORDER BY
+    CASE honogiin_interval
+        WHEN 'Өглөөний зөрчил (06:00-08:59)' THEN 1
+        WHEN 'Өдрийн зөрчил (09:00-16:59)' THEN 2
+        WHEN 'Оройн зөрчил (17:00-19:59)' THEN 3
+        ELSE 4
+    END;
+
+-- 2.	Хөдөлгөөний эрчмийг ялгасан интервал бүрт бүртгэгдэж буй зөрчлийн тооны ялгаа ямар байгааг харуулна уу?
+SELECT
+    d.duuregNer, h.horooNer, c.camerBairshil, COUNT(zb.burtgelID) AS zurchliin_too,
+    CASE
+        WHEN COUNT(zb.burtgelID) >= 50 THEN 'Их ачаалалтай'
+        WHEN COUNT(zb.burtgelID) >= 20 THEN 'Дундаж ачаалалтай'
+        ELSE 'Бага ачаалалтай'
+    END AS lvl
+FROM zorchilburtgel zb
+JOIN camer c ON zb.camerCode = c.camerID
+JOIN horoo h ON c.horooCode = h.horooID
+JOIN duureg d ON d.duuregId = h.duuregCode
+GROUP BY d.duuregNer, h.horooNer, c.camerBairshil
+ORDER BY zurchliin_too;
+
+
+-- 3.	Зуны болон өвлийн хуваарьт шилжих үед интервалыг өөрчилнө үү?
+SELECT
+    CASE
+        WHEN MONTH(ognoo) BETWEEN 6 AND 9 THEN 'Зуны хуваарь'
+        WHEN MONTH(ognoo)=12 OR MONTH(ognoo) BETWEEN 1 AND 2 THEN 'Өвлийн хуваарь'
+    END AS `улирал`,
+    CASE
+        WHEN MONTH(ognoo) BETWEEN 6 AND 9 THEN
+            CASE
+                WHEN ognoo >= DATE_ADD(DATE(ognoo), INTERVAL 7 HOUR) AND ognoo < DATE_ADD(DATE(ognoo), INTERVAL 10 HOUR) THEN 'Зуны өглөөний зөрчил (07:00-09:59)'
+                WHEN ognoo >= DATE_ADD(DATE(ognoo), INTERVAL 10 HOUR) AND ognoo < DATE_ADD(DATE(ognoo), INTERVAL 18 HOUR) THEN 'Зуны өдрийн зөрчил (10:00-17:59)'
+                WHEN ognoo >= DATE_ADD(DATE(ognoo), INTERVAL 18 HOUR) AND ognoo < DATE_ADD(DATE(ognoo), INTERVAL 21 HOUR) THEN 'Зуны оройн зөрчил (18:00-20:59)'
+                ELSE 'Зуны шөнийн зөрчил (21:00-06:59)'
+            END
+        WHEN MONTH(ognoo)=12 OR MONTH(ognoo) BETWEEN 1 AND 2 THEN
+            CASE
+                WHEN ognoo >= DATE_ADD(DATE(ognoo), INTERVAL 7 HOUR) AND ognoo < DATE_ADD(DATE(ognoo), INTERVAL 10 HOUR) THEN 'Өвлийн өглөөний зөрчил (07:00-09:59)'
+                WHEN ognoo >= DATE_ADD(DATE(ognoo), INTERVAL 10 HOUR) AND ognoo < DATE_ADD(DATE(ognoo), INTERVAL 17 HOUR) THEN 'Өвлийн өдрийн зөрчил (10:00-16:59)'
+                WHEN ognoo >= DATE_ADD(DATE(ognoo), INTERVAL 17 HOUR) AND ognoo < DATE_ADD(DATE(ognoo), INTERVAL 20 HOUR) THEN 'Өвлийн оройн зөрчил (17:00-19:59)'
+                ELSE 'Өвлийн шөнийн зөрчил (20:00-06:59)'
+            END
+    END AS `tsagiin_interval`, COUNT(*) AS `zorchliin_too`
+FROM zorchilburtgel
+WHERE (MONTH(ognoo) BETWEEN 6 AND 9) OR (MONTH(ognoo)=12 OR MONTH(ognoo) BETWEEN 1 AND 2)
+GROUP BY `улирал`, `tsagiin_interval`
+ORDER BY `улирал`,
+    CASE
+        WHEN `tsagiin_interval` LIKE '%өглөөний%' THEN 1
+        WHEN `tsagiin_interval` LIKE '%өдрийн%' THEN 2
+        WHEN `tsagiin_interval` LIKE '%оройн%' THEN 3
+        ELSE 4
+    END;
+
+-- 4.	Хөдөлгөөний эрчим хамгийн их байх үеийн бүртгэгдэж буй зөрчлийн тоо нь хамгийн бага үеийнхээс хэд дахин их байгааг харуулна уу?
+SELECT
+    CONCAT('Хөдөлгөөний эрчим хамгийн их үеийн зөрчил нь хамгийн бага үеийнхээс ',ROUND(MAX(z.zorchliin_too) / MIN(z.zorchliin_too),0), ' дахин их байна.') AS haritsaa
+FROM (
+    SELECT
+        CASE
+            WHEN HOUR(ognoo) BETWEEN 6 AND 8 THEN 'Өглөөний зөрчил (06:00-08:59)'
+            WHEN HOUR(ognoo) BETWEEN 9 AND 16 THEN 'Өдрийн зөрчил (09:00-16:59)'
+            WHEN HOUR(ognoo) BETWEEN 17 AND 19 THEN 'Оройн зөрчил (17:00-19:59)'
+            ELSE 'Шөнийн зөрчил (20:00-05:59)'
+        END AS honogiin_interval, COUNT(*) AS zorchliin_too
+    FROM zorchilburtgel
+    GROUP BY honogiin_interval
+) as z
+
+
+-- 5.	Нийтийн тээврийн хэрэгсэл 1-р эгнээний зөрчилд бүртгэгдсэн байвал түүнийг засна уу?
+DELETE zb FROM zorchilburtgel zb
+JOIN mashin m ON zb.mashinDugaar = m.plateNo
+JOIN angilal a ON m.angilalCode = a.angilalID
+JOIN zxtx z ON zb.duremCode = z.Id
+WHERE a.angilalNer = 'D' AND z.zaalt like '%1-р эгнээ%';
+
+-- 6.	СБД-н 8-р хороонд хийгдсэн зам засварын дараа уулзварт шинээр камер суурилуулжээ. Уг камерыг бүртгэнэ үү. Ингэхдээ хамгийн сүүлд бүртгэсэн камерын дугаарыг нэгээр нэмэгдүүлсэн байхаар дугаарлана уу. Хүснэгтэд тухайн талбарыг AutoIncrement байхаар шийдээгүй учир шинэ дугаарыг тооцоолж олно
+INSERT INTO camer (camerID, camerBairshil, horooCode) 
+SELECT CONCAT('cam', LPAD( IFNULL(MAX(CAST(SUBSTRING(camerID, 4) AS UNSIGNED)), 0) + 1, 3, '0')),
+    'СБД, 8-р хороо, шинэ уулзвар', 
+    80
+    FROm camer;
+
+SELECT * from camer
+
+SELECT CONCAT('cam', LPAD( IFNULL(MAX(CAST(SUBSTRING(camerID, 4) AS UNSIGNED)), 0) + 1, 3, '0')) FROM camer
+
+SELECT * FROM camer;
