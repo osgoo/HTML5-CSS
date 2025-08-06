@@ -1,0 +1,90 @@
+show tables;
+
+-- 1.	Машин тус бүрт бүртгэгдсэн зөрчлийн тоог харуул
+SELECT COUNT(*), mashinDugaar from zorchilburtgel
+GROUP BY mashinDugaar;
+
+
+-- 2.	Ямар ангиллын машин хамгийн олон байдаг вэ?
+select count(*), a.angilalNer FROM mashin m
+JOIN angilal a ON a.angilalID=m.angilalCode
+GROUP BY angilalNer;
+
+-- 3.	Хамгийн өндөр болон хамгийн бага торгуулийн хамжээ хэд байна вэ?
+SELECT zaalt,tulbur from zxtx
+where tulbur =(select MAX(tulbur) from zxtx) or tulbur = (select min(tulbur) from zxtx);
+
+-- 4.	Нийт бүртгэлтэй машинуудын дотор АЧААНЫ машин хэд байна вэ?
+select count(*) from mashin m
+join angilal a on a.angilalID=m.angilalCode
+where a.angilalNer='c';
+
+-- 5.	Ангилал бүрт харгалзах машины тоог харуул
+select a.`angilalNer`,COUNT(*) from mashin m
+join angilal a on a.angilalID=m.angilalCode
+GROUP BY a.`angilalNer`;
+
+-- 6.	Нийт гарсан зөрчлүүдийг a) дан оноор нь б) зөвхөн сараар нь в) онтой сартай нь бүлэглэн аль онд (хэдэн сард) хэдэн зөрчил гарсан байгааг тоолж харуул.
+select COUNT(*), YEAR(zb.ognoo) as year from zorchilburtgel zb
+GROUP BY YEAR(zb.ognoo)
+ORDER BY year;
+
+select COUNT(*), month(zb.ognoo) as month from zorchilburtgel zb
+GROUP BY month(zb.ognoo)
+ORDER BY month;
+
+select CONCAT(z.year,' оны ', z.month,' сард ', z.count,'н зөрчил гарсан байна') as zurchil_jagsaalt 
+from(
+    select YEAR(ognoo) as year , month(ognoo) as month, COUNT(*) as count from zorchilburtgel
+    GROUP BY YEAR(ognoo), month(ognoo)
+    ORDER BY YEAR(ognoo) , month(ognoo)) as z
+order BY z.year, z.month;
+
+-- 1.	Баянзүрх дүүргийн харъяатай машин эзэмшигчдийн тоог харуул. 
+select concat(z.duureg,' дүүрэгт машин эзэмшигч ',z.ztoo,' байна') as bayanzurkh
+from
+    (select COUNT(*) as ztoo, `duuregNer` as duureg from ezemshigch e
+    join mashin m on m.`EzemshigchRD`=e.`EzemshigchRD`
+    join zorchilburtgel zb on zb.`mashinDugaar`=m.`plateNo`
+    join camer c on c.`camerID`= zb.`camerCode`
+    join horoo h on h.`horooID`=c.`horooCode`
+    join duureg d on d.`duuregID`=h.`duuregCode`
+    group by `duuregNer`) as z
+where duureg='Баянзүрх';
+
+-- 2.	Өгсөн өдөр нэр бүхий дүүрэгт гарсан зөрчлүүдийг байршил, машины дугаар, зөрчлийн нэртэй харуул. 
+select c.`camerBairshil`, zb.`mashinDugaar`, z.zaalt, zb.ognoo from ezemshigch e
+join mashin m on m.`EzemshigchRD`=e.`EzemshigchRD`
+join zorchilburtgel zb on zb.`mashinDugaar`=m.`plateNo`
+join zxtx z on zb.`duremCode`=z.`Id`
+join camer c on c.`camerID`= zb.`camerCode`
+join horoo h on h.`horooID`=c.`horooCode`
+join duureg d on d.`duuregID`=h.`duuregCode`
+where ognoo LIKE '%2022-07-11%';
+
+-- 3.	Огноо оруулахад(2021-11-30) тухайн өдөрт бүртгэгдсэн хурд хэтрүүлсэн зөрчлийн тоог харуул.
+select COUNT(*), zb.ognoo from zorchilburtgel zb
+join zxtx z on z.`Id`=zb.`duremCode`
+where zaalt='Хурд хэтрүүлэх' AND ognoo='2021-11-30'
+GROUP BY ognoo;
+
+-- 4.	Огноо оруулахад(2021-11-30) тухайн өдөрт бүртгэгдсэн улаан гэрлээр уулзвар нэвтэрсэн зөрчлийн тоог харуул.
+select COUNT(*), zb.ognoo from zorchilburtgel zb
+join zxtx z on z.`Id`=zb.`duremCode`
+where zaalt='Улаан гэрлээр гарах' AND ognoo='2021-11-30'
+GROUP BY ognoo;
+
+-- 5.	Системд нийтдээ хичнээн удаагийн зөрчил бүртгэгдсэнийг харуулна уу.
+SELECT CONCAT('Системд нийтдээ ', COUNT(*), ' удаагийн зөрчил бүртгэгдсэн байна.') FROM zorchilburtgel;
+
+-- 6.	Өгсөн дугаар бүхий машин эзэмшигчийн мэдээллийг дэлгэрэнгүйгээр харуулна уу?
+select e.*, `plateNo`
+from ezemshigch e
+join mashin m on m.`EzemshigchRD`=e.`EzemshigchRD`
+where m.`plateNo`='ЧИН8395';
+
+
+
+select plateNo from mashin
+
+select * from zxtx
