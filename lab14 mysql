@@ -1,0 +1,91 @@
+create VIEW zurchil.myviewl as (SELECT id, tailbar, zaalt, tulbur from zxtx);
+
+-- 1.	Mashin, zorchilburtgel хүснэгтүүдээр ViewZorchil  нэртэй хийсвэр хүснэгт үүсгэ 
+CREATE VIEW zurchil.ViewZorchil as (SELECT m.*, zb.* from mashin m join zorchilburtgel zb on zb.`mashinDugaar`=m.`plateNo`)
+
+-- 2.	ViewZorchil хийсвэр хүснэгтээс дурын 2 тооцоолол хийж харуулна уу
+SELECT * FROM viewzorchil
+WHERE `unguCode`=44;
+
+SELECT `plateNo`,COUNT(*) FROM viewzorchil
+WHERE `angilalCode`=88
+GROUP BY `plateNo`;
+
+-- 3.	View ашигласан 2 жишээ бодлого зохиож бодно уу.
+SELECT mk.markNer, COUNT(*) AS too
+FROM ViewZorchil vz
+JOIN mark mk ON vz.markCode = mk.markID
+GROUP BY mk.markNer
+ORDER BY too DESC
+LIMIT 5;
+
+
+SELECT YEAR(vz.ognoo) AS year, MONTH(vz.ognoo) AS month, COUNT(vz.burtgelID) AS too
+FROM ViewZorchil vz
+WHERE vz.angilalCode = 88
+GROUP BY year, month
+ORDER BY year, month;
+
+
+
+
+-- 4.	Trigger ашигласан 2 жишээ бодлого зохиож бодно уу.
+CREATE TABLE zorchil_audit(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    zorchilID INT NOT NULL,
+    mashindugaar VARCHAR(7) NOT NULL,
+    changedat DATETIME DEFAULT NULL,
+    ACTION VARCHAR(50) DEFAULT NULL);
+
+DELIMITER $$
+CREATE TRIGGER zurchil.before_zorchilburtgel_update
+        BEFORE UPDATE on zorchilburtgel FOR EACH ROW
+BEGIN
+        INSERT INTO zorchil_audit
+        SET action = 'update', mashindugaar = OLD.mashindugaar,
+        zorchilID = OLD.burtgelID, changedat = NOW();
+END$$
+DELIMITER ;
+
+UPDATE zorchilburtgel
+SET ognoo='2020-12-02 12:12:12'
+WHERE mashinDugaar='УБА0000';
+
+select * from zorchilburtgel
+
+SELECT * FROM zorchil_audit
+
+DELIMITER $$
+CREATE TRIGGER zurchil.before_zorchilburtgel_delete
+        BEFORE DELETE on zorchilburtgel FOR EACH ROW
+BEGIN
+        INSERT INTO zorchil_audit
+        set action = 'deleted', mashindugaar = OLD.mashindugaar,
+        zorchilID = OLD.burtgelID, changedat = NOW();
+END$$
+DELIMITER;
+
+DELETE FROM zorchilburtgel
+WHERE burtgelID=3;
+
+-- 1.	View, Trigger ашигласан 3 жишээ бодлого зохиож бодно уу.
+SELECT u.unguNer AS 'Машины өнгө', COUNT(*) AS too
+FROM ViewZorchil vz
+JOIN ungu u ON vz.unguCode = u.unguID
+GROUP BY u.unguNer
+ORDER BY too DESC;
+
+DELIMITER $$
+CREATE TRIGGER zurchil.after_zorchilburtgel_insert
+    AFTER INSERT ON zorchilburtgel FOR EACH ROW
+BEGIN
+    INSERT INTO zorchil_audit
+    set action = 'inserted', mashindugaar = NEW.mashindugaar,
+    zorchilID = NEW.burtgelID, changedat = NOW();
+END$$
+DELIMITER ;
+
+INSERT INTO zorchilburtgel (burtgelID, ognoo, mashinDugaar, camerCode, duremCode)
+VALUES (999, NOW(), 'УБА0000', 'cam001', 46);
+
+

@@ -1,0 +1,16 @@
+use zurchil;
+
+-- 2.	Маркаар нь ангилж, ямар маркийн машин хэд байгааг харуулна уу?
+SELECT m.markNer, count(*) as too from mashin ma
+JOIN mark m ON m.`markID`=ma.`markCode`
+GROUP BY `markNer`;
+
+-- 3.	Зөрчил бүрийг хичнээн удаа давтагдсаныг харуул.
+SELECT z.zaalt, COUNT(*) as too from zorchilburtgel zb
+JOIN zxtx z ON z.`Id`=zb.`duremCode`
+GROUP BY zaalt;
+
+-- 4.	Бүртгэгдсэн машинуудыг төрлөөр нь тоол. 
+SELECT angilalNer, COUNT(*) as too from mashin m
+JOIN angilal a ON a.`angilalID`=m.`angilalCode`
+GROUP BY `angilalNer`;

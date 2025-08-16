@@ -1,0 +1,61 @@
+show TABLES;
+
+-- 1.	Сүхбаатар дүүргийн харъяатай машин эзэмшигчдийн тоог харуул. 
+select CONCAT('Сүхбаатар дүүрэгт нийт ', count(*), 'н машин эзэмшигч байдаг байна.') as zorchliin_medeelel
+from ezemshigch
+where `Hayag` like '%Сүхбаатар%';
+
+-- 2.	Өгсөн өдөр нэр бүхий дүүрэгт гарсан зөрчлүүдийг байршил, машины дугаар, зөрчлийн нэртэй харуул.
+SELECT
+    h.horooNer AS 'Хороо',
+    c.camerBairshil AS 'Камерын байршил',
+    zb.mashinDugaar AS 'Машины дугаар',
+    z.zaalt AS 'Зөрчлийн нэр',
+    zb.ognoo AS 'Огноо'
+FROM zorchilburtgel zb
+JOIN zxtx z ON zb.duremCode = z.Id
+JOIN camer c ON zb.camerCode = c.camerID
+JOIN horoo h ON c.horooCode = h.horooID
+JOIN duureg d ON h.duuregCode = d.duuregID
+WHERE DATE(zb.ognoo) = '2022-07-11' AND d.duuregNer = 'Багануур';
+
+-- 3.	Огноо оруулахад(2021-11-30) тухайн өдөрт бүртгэгдсэн хурд хэтрүүлсэн зөрчлийн тоог харуул. 
+SELECT CONCAT('2021-11-30-ны өдөр нийт ',COUNT(*),' удаа хурд хэтрүүлсэн зөрчил бүртгэгдсэн байна.') AS hurdnii_zorchliin_too
+FROM zorchilburtgel zb
+JOIN zxtx z ON zb.duremCode = z.Id
+WHERE DATE(zb.ognoo) = '2021-11-30' AND z.zaalt = 'Хурд хэтрүүлэх';
+
+-- 4.	Огноо оруулахад(2022-11-30) тухайн өдөрт бүртгэгдсэн улаан гэрлээр уулзвар нэвтэрсэн зөрчлийн тоог харуул.
+SELECT CONCAT('2022-11-30-ны өдөр нийт ',COUNT(*),' удаа улаан гэрлээр гарсан зөрчил бүртгэгдсэн байна.') AS ulaan_gerliin_zorchil
+FROM zorchilburtgel zb
+JOIN zxtx z ON zb.duremCode = z.Id
+WHERE DATE(zb.ognoo) = '2022-11-30' AND z.zaalt = 'Улаан гэрлээр гарах';
+
+-- 5.	Нийт бүртгэлтэй машинуудын дотор D ангилалын машин хэд байна вэ?
+SELECT CONCAT('Нийт ', COUNT(*), ' ширхэг D ангиллын машин бүртгэлтэй байна.') AS d_angilaliin_too
+FROM mashin m
+JOIN angilal a ON a.angilalID = m.angilalCode
+WHERE a.angilalNer = 'D';
+
+-- 6.	Ангилал бүрт харгалзах машины тоог харуул
+SELECT a.angilalNer AS angilal, COUNT(*) AS mashinii_too
+FROM mashin m
+JOIN angilal a ON m.angilalCode = a.angilalID
+GROUP BY a.angilalNer
+ORDER BY mashinii_too DESC;
+
+-- 7.	Нийт бүртгэгдсэн машины дотор ачааны машин хэдэн хувийг эзэлж байгааг харуулна уу?
+SELECT count(*)*100/(select COUNT(*) from mashin) AS achaanii_mashinii_ezleh_huvi
+FROM mashin m
+JOIN angilal a ON m.angilalCode = a.angilalID
+WHERE `angilalNer`='C';
+
+-- 1.	Системд нийтдээ хичнээн удаагийн зөрчил бүртгэгдсэнийг харуулна уу.
+SELECT CONCAT('Системд нийтдээ ', COUNT(*), ' удаагийн зөрчил бүртгэгдсэн байна.') AS niit_zorchliin_too
+FROM zorchilburtgel;
+
+-- 2.	Өгсөн дугаар бүхий машин эзэмшигчийн мэдээллийг дэлгэрэнгүйгээр харуулна уу?
+SELECT *
+FROM ezemshigch e
+JOIN mashin m ON e.EzemshigchRD = m.EzemshigchRD
+WHERE m.plateNo = 'ЧИН8395';

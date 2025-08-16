@@ -1,0 +1,83 @@
+use zurchil;
+# 1.	Автомашин эзэмшигчдийн нэрсийг харуул. /Select/
+select ner
+from ezemshigch;
+
+select * from mark;
+select *
+from ungu;
+select * from zorchilburtgel;
+select * from camer;
+select * from zxtx;
+select * from mashin;
+select * from horoo h
+join duureg d on h.duuregCode = d.duuregID;
+
+insert into zorchilburtgel(burtgelID, ognoo, camerCode, duremCode, mashinDugaar)
+values
+    (3,'2022-07-11','cam1',46,'ДАХ0000'),
+    (4,'2022-07-11','cam1',45,'ДАХ0000'),
+    (5,'2022-07-11','cam2',46,'ДАХ0000'),
+    (6,'2022-12-31','cam1',46,'ДАХ0000'),
+    (7,'2022-12-31','cam1',47,'ДАХ0000'),
+    (8,'2022-12-31','cam1',47,'ДАХ0000');
+# 2.	2022-07-11 болон 2022-12-31 өдөр зөрчил гаргасан машинуудын дугаарыг зөрчлийн төрлөөр бүлэглэж, огнооны өсөх эрэмбээр харуулах SELECT асуулга бичнэ үү. /Select/
+select ognoo,group_concat(duremCode,' ',mashinDugaar) as dugaaruud
+from zorchilburtgel
+where ognoo='2022-07-11' or ognoo='2022-12-31'
+group by ognoo, duremCode
+order by ognoo;
+# 3.	Өгөгдсөн РД-тай эзэмшигчийн машины дугаарыг харуулна уу. /Select/
+select plateNo
+from mashin
+where EzemshigchRD='TA00000002';
+# 4.	Ямар зөрчлүүдэд 20 000₮ торгууль оногдуулдаг вэ? /Select/
+select tailbar, zxtx.zaalt
+from zxtx
+where tulbur=20000;
+
+insert into camer(camerID, camerBairshil, horooCode)
+values('cam5','hha',44);
+# 5.	Камеруудыг аль дүүрэгт хэд байгаагаар нь ялган тоол. /Group by/
+select group_concat(c.camerID), d.duuregNer, count(*) as camerToo
+from camer c
+join horoo h on c.horooCode = h.horooID
+join duureg d on h.duuregCode = d.duuregID
+group by d.duuregNer;
+# 6.	Бүртгэгдсэн машинуудыг төрл (марк)-өөр нь тоолно уу. /Group by/
+select group_concat(m.markNer) as markuud, u.uildverlegchNer, count(*) as markToo
+from mark m
+join uildverlegch u on m.uildverCode = u.uildverlegchID
+group by u.uildverlegchNer ;
+
+select year(zb.ognoo), month(zb.ognoo),count(*)
+from zorchilburtgel zb
+group by ognoo;
+# 7.	Тухайн сард бүртгэгдсэн зөрчлүүдийг өдөр өдрөөр нь хэчнээн удаа гарч байгааг тоолж харуулна уу. /Group by/
+select year(zb.ognoo), month(zb.ognoo),day(zb.ognoo), z.zaalt, count(*)
+from zorchilburtgel zb
+join zxtx z on zb.duremCode = z.Id
+where month(zb.ognoo)='10'
+group by year(zb.ognoo), month(zb.ognoo),day(zb.ognoo),z.zaalt;
+
+select zaalt, count(*)
+from zxtx
+group by zaalt;
+# 8.	1000 зөрчлийн бичлэг бүртгэгдсэн байхад эдгээр нь ямар нэг зөрчлийн нэрийн дор ангилагдана. Тэгвэл 2000-с дээш удаа бүртгэгдсэн зөрчлийг харуулна уу.
+select zaalt, count(*)
+from zxtx
+where (select count(*) from zxtx)>2000
+group by zaalt ;
+# 9.	Зөрчил бүртгэгдсэн мэдээллүүдийг огнооны буурах эрэмбээр, өөрөөр хэлбэл сүүлд гарсан зөрчил хамгийн дээр байхаар эрэмбэл. /Order By/
+select year(zb.ognoo), month(zb.ognoo),day(zb.ognoo), z.zaalt, count(*)
+from zorchilburtgel zb
+join zxtx z on zb.duremCode = z.Id
+group by year(zb.ognoo), month(zb.ognoo),day(zb.ognoo),z.zaalt
+order by year(zb.ognoo) desc, month(zb.ognoo) desc,day(zb.ognoo) desc;
+# 10.	Зөрчил бүртгэгдсэн мэдээллүүдийг огнооны буурах эрэмбээр 10-19 дэх бүртгэлүүдийг харуулна уу. /Order By, Limit/
+select year(zb.ognoo), month(zb.ognoo),day(zb.ognoo), z.zaalt, count(*)
+from zorchilburtgel zb
+join zxtx z on zb.duremCode = z.Id
+group by year(zb.ognoo), month(zb.ognoo),day(zb.ognoo),z.zaalt
+order by year(zb.ognoo) desc, month(zb.ognoo) desc,day(zb.ognoo) desc
+limit 10 offset 9;
