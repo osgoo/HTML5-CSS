@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Мэдээлэлээ оруулна уу</h3>
+    <input type="text" name="" id="name" placeholder="Нэр оруулна уу"><br>
+    <input type="number" name="" id="age" placeholder="Насаа оруулна уу"><br>
+    <input type="email" name="" id="email" placeholder="Email ээ оруулна уу"><br>
+    <input type="password" name="" id="password" placeholder="Password"><br>
+    <input type="password" name="" id="passwordCheck" placeholder="PasswordAgain"><br>
+    <button onclick="validate()" id="btn">check</button><br>
+    <p id="error" style="color: red"></p><br>
+    <ul id="list"></ul>
+
+
+    <script>
+        let students = JSON.parse(localStorage.getItem("students")) || [];
+        console.log(students);
+
+        function validate(){
+            const name = document.getElementById("name").value;
+            const age = document.getElementById("age").value;
+            const email = document.getElementById("email").value;
+            const pass = document.getElementById("password").value;
+            const passC = document.getElementById("passwordCheck").value;
+
+            if(!name || !age || !email || !pass || !passC){
+                error.innerText = "Бүх талбарыг оруулна уу";
+                return;
+            }
+            if(name === ""){
+                error.innerText = "Нэрээ оруулна уу";
+                return;
+            }
+            if(age < 1){
+                error.innerText = "Нас аа зөв оруулна уу";
+                return;
+            }
+            if(!email.includes("@")){
+                error.innerText = "И мэйл оруулна уу";
+                return;
+            }
+            if(pass!=passC){
+                error.innerText = "Password таарахгүй байна";
+                return;
+            }
+            
+            error.style.color = "green";
+            error.innerText = "Амжилттай бүртгэгдлээ";
+            students.push({name, age: Number(age), email, pass: Number(pass)});
+
+            localStorage.setItem("students", JSON.stringify(students));
+        }
+
+    </script>
+</body>
+</html>

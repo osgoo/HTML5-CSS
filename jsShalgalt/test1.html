@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" name="" id="num1" required><br>
+    <input type="number" name="" id="num2" required><br>
+    <input type="number" name="" id="num3" required><br>
+    <button id="btn" onclick="nemeh()">nemeh</button>
+    <button id="btn" onclick="hasah()">hasah</button>
+    <button id="btn" onclick="urjih()">urjih</button>
+    <button id="btn" onclick="huvaah()">huvaah</button>
+
+
+    <script>
+
+
+        function nemeh(){
+            const a = document.getElementById("num1").value;
+            const b = document.getElementById("num2").value;
+            const c = document.getElementById("num3").value;
+
+                const sum = Number(a) + Number(b) + Number(c);
+
+                console.log(sum);
+
+
+        }
+        function hasah(){
+            const a = document.getElementById("num1").value;
+            const b = document.getElementById("num2").value;
+            const c = document.getElementById("num3").value;
+
+                const sum = Number(a) - Number(b) - Number(c);
+
+                console.log(sum);
+
+
+        }
+        function urjih(){
+            const a = document.getElementById("num1").value;
+            const b = document.getElementById("num2").value;
+            const c = document.getElementById("num3").value;
+
+                const sum = Number(a) * Number(b) * Number(c);
+
+                console.log(sum);
+
+
+        }
+        function huvaah(){
+            const a = document.getElementById("num1").value;
+            const b = document.getElementById("num2").value;
+            const c = document.getElementById("num3").value;
+
+            if(b!=0 && c!=0){
+
+                const huvaa = Number(a) / Number(b) / Number(c);
+
+                console.log(huvaa);
+            }
+            else{
+                console.log("toog 0d huvaaj bolohgui tul dahin oruul");
+            }
+        }
+
+        
+    </script>
+</body>
+</html>
